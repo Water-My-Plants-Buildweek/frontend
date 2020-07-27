@@ -23,7 +23,8 @@ const initialState = {
       h2oFrequency: 14,
       image: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'
     },
-  ]
+  ],
+  message: ''
 };
 
 export const plantsReducer = (state = initialState, action) => {
