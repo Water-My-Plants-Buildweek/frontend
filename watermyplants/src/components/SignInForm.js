@@ -8,7 +8,7 @@ export default function SignInForm(){
       password: ""
   }
 
-//   const [formState, setFormState]=useState(initialFormState)
+  const [formState, setFormState]=useState(initialFormState)
 
 
  return (
