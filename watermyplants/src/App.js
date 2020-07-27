@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
+import AccountForm from './components/AccountForm.js'
+
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Title</h1>
-      </header>
+      <AccountForm/>
     </div>
   );
 }
