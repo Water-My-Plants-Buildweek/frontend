@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import * as yup from 'yup'
+import {formSchema} from '../validation/formSchema'
 
 
 export default function SignInForm(){
@@ -7,8 +9,13 @@ export default function SignInForm(){
       name: "",
       password: ""
   }
+  const intialErrors = {
+    name: "",
+    password: ""
+  }
 
   const [formState, setFormState]=useState(initialFormState)
+  const [errors, setErrors]=useState(initialErrors)
 
 
  return (
