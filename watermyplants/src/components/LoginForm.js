@@ -9,21 +9,21 @@ export default function LoginForm() {
     name: "",
     password: "",
   };
-    const initialErrors = {
-      name: "",
-      password: ""
-    }
+  const initialErrors = {
+    name: "",
+    password: ""
+  };
 
   //passed in the variables inside of useState as an arguement
   const [formState, setFormState] = useState(initialFormState);
-    const [errors, setErrors]=useState(initialErrors)
+  const [errors, setErrors] = useState(initialErrors);
   const [loginButtonDisabled, setLoginButtonDisabled] = useState(true);
 
   // passed the formState into the formSchema to make sure
   // all form input values are valid before the user is able to click submit
   useEffect(() => {
     loginFormSchema.isValid(formState).then((valid) => {
-      console.log('this is valid',valid)
+      console.log('this is valid', valid);
       setLoginButtonDisabled(!valid);
     });
   }, [formState]);
@@ -31,10 +31,10 @@ export default function LoginForm() {
   //this variable i inserted inside of onChange of name and password input
 
   const loginInputChange = (event) => {
-    event.persist()
+    event.persist();
     setFormState({ ...formState, [event.target.name]: event.target.value });
-    validate(event)
-    console.log(event.target.value)
+    validate(event);
+    console.log(event.target.value);
   };
 
   const formSubmit = (event) => {
@@ -42,22 +42,22 @@ export default function LoginForm() {
   };
 
 
-  const validate = (event) =>{
+  const validate = (event) => {
     yup.reach(loginFormSchema, event.target.name).validate(event.target.value)
-    .then(valid =>{
+      .then(valid => {
         setErrors({
-            ...errors,
-            [event.target.name]: ""
-        })
-    })
-    .catch(error =>{
-        console.log(error.errors)
+          ...errors,
+          [event.target.name]: ""
+        });
+      })
+      .catch(error => {
+        console.log(error.errors);
         setErrors({
-            ...errors,
-            [event.target.name] : error.errors[0]
-        })
-    })
-}
+          ...errors,
+          [event.target.name]: error.errors[0]
+        });
+      });
+  };
 
 
 
@@ -83,8 +83,8 @@ export default function LoginForm() {
           value={formState.name}
         />
       </label>
-     
-      
+
+
       <label htmlFor="password">
         <input
           type="password"
