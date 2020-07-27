@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
+import SignInForm from './components/SignInForm'
 
 const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Title</h1>
+      
+        <SignInForm />
       </header>
     </div>
   );
