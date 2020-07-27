@@ -1,6 +1,21 @@
 .account-form-container {
     
+    border: 2px solid black;
+    width: 30%;
+    margin: 5% auto;
+    padding: 5%;
+
+
     form {
         @include flex(column, center, center, no-wrap);
     }
+
+    .error {
+        div{
+            color: red;
+    
+        }
+    }
+
 }
+

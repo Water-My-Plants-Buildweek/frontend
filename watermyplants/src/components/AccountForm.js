@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import PhoneInput from 'react-phone-number-input'
+import React, { useState, useEffect } from 'react'
 import * as yup from 'yup'
 import accountFormSchema from '../validation/accountFormSchema'
-import 'react-phone-number-input/style.css'
 
 //setting up default form values so that fields are empty
 const initialFormValues = {
@@ -59,19 +57,25 @@ export default function AccountForm(props) {
         })
     }
 
+    //enables submit button once validation is met
+    useEffect(() => {
+        accountFormSchema.isValid(formValues).then(valid => {
+          setDisabled(!valid)
+        })
+      }, [formValues])
 
     return (
         <div className='account-form-container'>
             <form>
-                <label htmlFor='phoneInput'>
-                    <PhoneInput
+                <label htmlFor='phone'>
+                    <input
                         placeholder="Enter phone number"
                         value={formValues.phone}
                         onChange={onInputChange}
-                        name='phoneInput'
+                        name='phone'
                     />
                 </label>
-                <label htmlFor='passwordInput'>
+                <label htmlFor='password'>
                     <input
                         id='password'
                         name='password'
@@ -82,7 +86,7 @@ export default function AccountForm(props) {
 
                     />
                 </label>
-                <label htmlFor='passwordConfirmInput'>
+                <label htmlFor='passwordConfirm'>
                     <input
                         id='passwordConfirm'
                         name='passwordConfirm'
@@ -93,7 +97,7 @@ export default function AccountForm(props) {
                     />
                 </label>
 
-                <button className='submit-btn' disabled={disabled}>Submit</button>
+                <button className='submit-btn' disabled={disabled}>Update</button>
             </form>
             <div className='errors'>
                 <div>{formErrors.phone}</div>
