@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import SignInForm from './components/SignInForm'
+import LoginForm from './components/LoginForm'
 import SignUpForm from './components/SignUpForm'
 
 const App = () => {
@@ -8,8 +8,8 @@ const App = () => {
     <div className="App">
       <header className="App-header">
       
-        <SignInForm />
-        <SignUpForm />
+        <LoginForm />
+        <SignUpForm/>
       </header>
     </div>
   );

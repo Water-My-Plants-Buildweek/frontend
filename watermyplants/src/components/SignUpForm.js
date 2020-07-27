@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
-import { loginFormSchema } from "../validation/loginFormSchema";
+import { SignUpFormSchema } from "../validation/SignUpFormSchema";
 
 export default function SignInForm() {
   //created object with name and password and assigned to
@@ -8,10 +8,12 @@ export default function SignInForm() {
   const initialFormState = {
     name: "",
     password: "",
+    passwordConfirmation: ""
   };
     const initialErrors = {
       name: "",
-      password: ""
+      password: "",
+      passwordConfirmation: ""
     }
 
   //passed in the variables inside of useState as an arguement
@@ -22,7 +24,7 @@ export default function SignInForm() {
   // passed the formState into the formSchema to make sure
   // all form input values are valid before the user is able to click submit
   useEffect(() => {
-    loginFormSchema.isValid(formState).then((valid) => {
+    SignUpFormSchema.isValid(formState).then((valid) => {
       console.log('this is valid',valid)
       setLoginButtonDisabled(!valid);
     });
@@ -43,7 +45,7 @@ export default function SignInForm() {
 
 
   const validate = (event) =>{
-    yup.reach(loginFormSchema, event.target.name).validate(event.target.value)
+    yup.reach(SignUpFormSchema, event.target.name).validate(event.target.value)
     .then(valid =>{
         setErrors({
             ...errors,
@@ -69,9 +71,9 @@ export default function SignInForm() {
   return (
     <form onSubmit={formSubmit}>
 
-      <h1>Login</h1>
+      <h1>Sign Up</h1>
       {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
-      {errors.password.length > 0 ? <p className="error">{errors.password}</p> : null}
+      {errors.passwordConfirmation.length > 0 ? <p className="error">{errors.passwordConfirmation}</p> : null}
 
       <label htmlFor="name">
         <input
@@ -94,6 +96,18 @@ export default function SignInForm() {
           onChange={loginInputChange}
           value={formState.password}
         />
+        
+      </label>
+      <label htmlFor="passwordConfirmation">
+        <input
+          type="password"
+          id="passwordConfirmation"
+          name="passwordConfirmation"
+          placeholder="Confirm Password"
+          onChange={loginInputChange}
+          value={formState.passwordConfirmation}
+        />
+        
       </label>
       <button disabled={loginButtonDisabled}>LOGIN</button>
     </form>

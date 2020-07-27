@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { loginFormSchema } from "../validation/loginFormSchema";
 
-export default function SignInForm() {
+export default function LoginForm() {
   //created object with name and password and assigned to
   //variables below
   const initialFormState = {
