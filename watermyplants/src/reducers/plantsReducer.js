@@ -1,3 +1,8 @@
+//Use for dummy data to provide IDs without need for UUID. Later, backend will provide IDs
+const bigRandom = () => {
+  return Math.floor(Math.random(1000000) * 1000000);
+};
+
 const initialState = {
   plants: [
     {
