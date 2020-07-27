@@ -26,7 +26,10 @@ export default function SignInForm() {
   useEffect(() => {
     SignUpFormSchema.isValid(formState).then((valid) => {
       console.log('this is valid',valid)
-      setLoginButtonDisabled(!valid);
+      setLoginButtonDisabled(!valid)
+      if(valid){
+        setErrors(initialErrors)
+      }
     });
   }, [formState]);
 

@@ -9,11 +9,11 @@ return(
 
 
 <nav>
-<Link to="/signup">Sign Up</Link>
-<Link to="/login">Login</Link>
-<Link to="">Plants</Link>
-<Link to="">Account</Link>
-<Link to="">Log Out</Link>
+<Link to="/signup" className="link">Sign Up</Link>
+<Link to="/login" className="link">Login</Link>
+<Link to="" className="link">Plants</Link>
+<Link to="" className="link">Account</Link>
+<Link to="" className="link">Log Out</Link>
 
 </nav>
 
