@@ -1,0 +1,21 @@
+header {
+    display: flex;
+    width: 100%;
+    background: #1a3c40;
+    font-family: "Kalam", cursive;
+    justify-content: space-around;
+
+    h1 {
+        color: #e4eddb;
+    }
+
+    nav {
+        color: white;
+        display: flex;
+
+        .link {
+            color: #e4eddb;
+            margin: 40px;
+        }
+    }
+}
