@@ -1,7 +1,4 @@
-//Use for dummy data to provide IDs without need for UUID. Later, backend will provide IDs
-const bigRandom = () => {
-  return Math.floor(Math.random(1000000) * 1000000);
-};
+import { ADD_PLANT, DELETE_PLANT, EDIT_PLANT } from '../actions/plantsActions';
 
 const initialState = {
   plants: [
@@ -31,6 +28,31 @@ const initialState = {
 
 export const plantsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ADD_PLANT:
+      return {
+        ...state,
+        plants: [
+          ...state.plants,
+          action.payload
+        ]
+      };
+    case DELETE_PLANT:
+      return {
+        ...state,
+        plants: state.plants.filter(plant => plant.id !== action.payload)
+      };
+    case EDIT_PLANT:
+      return {
+        ...state,
+        plants:
+          state.plants.map(plant => {
+            if (plant.id === action.payload.id) {
+              return action.payload;
+            } else {
+              return plant;
+            }
+          })
+      };
     default:
       return state;
   };
