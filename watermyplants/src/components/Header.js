@@ -1,18 +1,25 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom'
 
 export default function Header(){
 
-return(<header>
+return(
+<header>
+ <h1>Wet My Plants</h1> 
 
-<h1>Wet My Plants</h1>
-<a href="">Sign Up</a>
-<a href="">Login</a>
-<a href="">Plants</a>
-<a href="">Account</a>
-<a href="">Log Out</a>
 
-</header>)
+<nav>
+<Link to="/signup">Sign Up</Link>
+<Link to="/login">Login</Link>
+<Link to="">Plants</Link>
+<Link to="">Account</Link>
+<Link to="">Log Out</Link>
+
+</nav>
+
+
+</header>
+)
 
 }
 
