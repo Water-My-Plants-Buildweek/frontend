@@ -70,16 +70,35 @@
     margin-top: 25px;
   }
 }
+
+.plant-card {
+    
+  border: 2px solid black;
+  width: 300px;
+  margin: 10rem auto;
+  background-color: lightgreen;
+  @include flex(column, center, center, no-wrap);
+}
+
 .account-form-container {
     
     border: 2px solid black;
     width: 300px;
     margin: 10rem auto;
+    background-color: lightgreen;
 
+
+  h2{
+    text-align:center;
+  }
 
     form {
         @include flex(column, center, center, no-wrap);
         line-height: 3rem;
+
+        .number-input{
+          width: 20px;
+        }
     }
 
     .error {

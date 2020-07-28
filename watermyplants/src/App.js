@@ -12,8 +12,7 @@ const App = () => {
       <header className="App-header">
         <Header />
       </header>
-      <PlantsPage/>
-
+      
       <Switch>
         <Route path="/login">
           <LoginForm />
@@ -23,6 +22,9 @@ const App = () => {
         </Route>
         <Route path="/account">
           <AccountForm />
+        </Route>
+        <Route path='/myplants'>
+        <PlantsPage/>
         </Route>
       </Switch>
     </div>
