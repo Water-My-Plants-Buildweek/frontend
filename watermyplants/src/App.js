@@ -3,6 +3,7 @@ import AccountForm from './components/AccountForm.js'
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
 import Header from './components/Header';
+import PlantsPage from './components/PlantsPage'
 import { Route, Link, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -11,6 +12,8 @@ const App = () => {
       <header className="App-header">
         <Header />
       </header>
+      <PlantsPage/>
+
       <Switch>
         <Route path="/login">
           <LoginForm />

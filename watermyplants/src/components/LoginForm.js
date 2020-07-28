@@ -59,13 +59,6 @@ export default function LoginForm() {
       });
   };
 
-
-
-
-
-
-
-
   return (
     <form onSubmit={formSubmit}>
 
