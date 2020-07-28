@@ -11,7 +11,7 @@ const initialPlantFormValues = {
 }
 
 function formattedPlantValues (plant) {
-    return {...plant, ['water-frequency']:Number(plant.h2oFrequency)}
+    return {...plant, h2oFrequency:Number(plant.h2oFrequency)}
     
 }
 
@@ -21,9 +21,7 @@ function NewPlantForm(props) {
 
     const onSubmit = evt => {
         evt.preventDefault()
-        props.addPlant(formattedPlantValues(plantFormValues))
-        
-        console.log(formattedPlantValues(plantFormValues))
+        props.addPlant(plantFormValues)
         setPlantFormValues(initialPlantFormValues)
     }
 
@@ -38,6 +36,7 @@ function NewPlantForm(props) {
     }
 
     return (
+        <div>
         <div className='account-form-container'>
             <h2>Add a new plant</h2>
             <form onSubmit={onSubmit} className='new-plant'>
@@ -84,6 +83,7 @@ function NewPlantForm(props) {
                 </div>
 
             </form>
+        </div>
         </div>
     )
 

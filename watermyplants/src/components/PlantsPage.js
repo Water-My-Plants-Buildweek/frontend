@@ -6,19 +6,26 @@ import { getPlants } from '../actions/plantsActions'
 
 function PlantsPage(props) {
     
+    const [hideNewPlant, setHideNewPlant] = useState(true)
+
     useEffect(() => {
         props.getPlants()
     },[])
 
-    function onDelete(){
-        ///add in delete logic
+    function addPlant() {
+        setHideNewPlant(false)
     }
 
     return (
 
         <div className='plant-card-container'>
-            <a className='round-button add'></a>
-            <NewPlantForm />
+            <a 
+            className='round-button add'
+            onClick={addPlant}
+            ></a>
+            <div className={hideNewPlant ? 'hidden' : ''}>
+            <NewPlantForm/>
+            </div>
             {props.plants.map(plnt => {
                 return (
                     
