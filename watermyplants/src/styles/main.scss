@@ -71,6 +71,12 @@
   }
 }
 
+.plant-card-container {
+  @include flex(row, flex-start, center, wrap);
+  width: 70%;
+  margin: 0 auto;
+}
+
 .plant-card {
     
   border: 2px solid black;
@@ -79,8 +85,17 @@
   background-color: lightgreen;
   @include flex(column, center, center, no-wrap);
 
+
+  h2 {
+    margin: 30px;  
+  }
+
   img {
     width: 70%
+  }
+
+  .edit-delete-buttons{
+    @include flex(row, center, center, no-wrap);
   }
 }
 
@@ -115,13 +130,13 @@
 }
 
 .round-button{
-    background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+    background-color: white;
     background-image: linear-gradient(top, #f4f1ee, #fff);
     border-radius: 50%;
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
     float:left;
     height: 70px;
-    margin: 0 30px 30px 0;
+    margin: 30px;
     position: relative;
     width: 70px;			
     -webkit-transition: all .1s linear;
@@ -167,16 +182,39 @@
     }
 }
 
-
 .add:after{
     content: "+";
     font-size: 2rem;
-    left: 20px;
-    top: 14px;
+    left: 29px;
+    top: 25px;
 }
 
 .add:hover:after{
     color:lightblue;
-    text-shadow:0px 0px 6px lightblue;
-    top: 14px;
+    text-shadow:0px 0px 6px green;
+}
+
+
+.delete{
+  &:after{
+    content: "✖";
+    left: 24px;
+    top: 15px;
+  }
+  &:hover:after{
+    color:#eb2f2f;
+    text-shadow:0px 0px 6px #eb2f2f;
+  }
+}
+
+.edit{
+  &:after{
+    content: "✐";
+    left: 20px;
+    top: 13px;
+  }
+  &:hover:after{
+    color:brown;
+    text-shadow:0px 0px 6px brown;
+  }
 }

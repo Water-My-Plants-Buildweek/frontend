@@ -4,10 +4,15 @@ import NewPlantForm from './NewPlantForm'
 import { connect } from 'react-redux';
 
 function PlantsPage(props) {
-    console.log(props.plants)
+    
+    function onDelete(){
+        ///add in delete logic
+    }
+
     return (
 
-        <div>
+        <div className='plant-card-container'>
+            <a className='round-button add'></a>
             {props.plants.map(plnt => {
                 return (
                     <PlantCard
