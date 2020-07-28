@@ -11,7 +11,7 @@ export default function LoginForm() {
   };
   const initialErrors = {
     name: "",
-    password: "",
+    password: ""
   };
 
   //passed in the variables inside of useState as an arguement
@@ -23,7 +23,7 @@ export default function LoginForm() {
   // all form input values are valid before the user is able to click submit
   useEffect(() => {
     loginFormSchema.isValid(formState).then((valid) => {
-      console.log("this is valid", valid);
+      console.log('this is valid', valid);
       setLoginButtonDisabled(!valid);
     });
   }, [formState]);

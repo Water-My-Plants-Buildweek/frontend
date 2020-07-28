@@ -1,9 +1,9 @@
-import React from "react";
-import "./App.css";
-import LoginForm from "./components/LoginForm";
-import SignUpForm from "./components/SignUpForm";
-import Header from "./components/Header";
-import { Route, Switch } from "react-router-dom";
+import React from 'react';
+import AccountForm from './components/AccountForm.js'
+import LoginForm from './components/LoginForm';
+import SignUpForm from './components/SignUpForm';
+import Header from './components/Header';
+import { Route, Link, Switch } from 'react-router-dom';
 
 const App = () => {
   return (
@@ -17,6 +17,9 @@ const App = () => {
         </Route>
         <Route path="/signup">
           <SignUpForm />
+        </Route>
+        <Route path="/account">
+          <AccountForm />
         </Route>
       </Switch>
     </div>

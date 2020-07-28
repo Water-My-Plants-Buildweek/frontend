@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   background-image: url("https://images.unsplash.com/photo-1462530348824-65844534c0ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80");
   background-repeat: no-repeat;
@@ -29,4 +30,35 @@ body {
     color: red;
     font-size: 1.4rem;
   }
+=======
+h1, h2, h3 h4 {
+    line-height: 2rem;
+    padding-bottom: 2rem;
+}
+
+.button {
+    
+}
+
+header {
+    display: flex;
+    width: 100%;
+    background: #1a3c40;
+    font-family: "Kalam", cursive;
+    justify-content: space-around;
+
+    h1 {
+        color: #e4eddb;
+    }
+
+    nav {
+        color: white;
+        display: flex;
+
+        .link {
+            color: #e4eddb;
+            margin: 40px;
+        }
+    }
+>>>>>>> 1e81465ddad1bb83ab27a398f8d89938f76c0ce1
 }
