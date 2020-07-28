@@ -8,27 +8,26 @@ export default function SignInForm() {
   const initialFormState = {
     name: "",
     password: "",
-    passwordConfirmation: ""
+    passwordConfirmation: "",
   };
-    const initialErrors = {
-      name: "",
-      password: "",
-      passwordConfirmation: ""
-    }
+  const initialErrors = {
+    name: "",
+    password: "",
+    passwordConfirmation: "",
+  };
 
   //passed in the variables inside of useState as an arguement
   const [formState, setFormState] = useState(initialFormState);
-    const [errors, setErrors]=useState(initialErrors)
+  const [errors, setErrors] = useState(initialErrors);
   const [loginButtonDisabled, setLoginButtonDisabled] = useState(true);
 
   // passed the formState into the formSchema to make sure
   // all form input values are valid before the user is able to click submit
   useEffect(() => {
     SignUpFormSchema.isValid(formState).then((valid) => {
-      console.log('this is valid',valid)
-      setLoginButtonDisabled(!valid)
-      if(valid){
-        setErrors(initialErrors)
+      setLoginButtonDisabled(!valid);
+      if (valid) {
+        setErrors(initialErrors);
       }
     });
   }, [formState]);
@@ -36,47 +35,43 @@ export default function SignInForm() {
   //this variable i inserted inside of onChange of name and password input
 
   const loginInputChange = (event) => {
-    event.persist()
+    event.persist();
     setFormState({ ...formState, [event.target.name]: event.target.value });
-    validate(event)
-    console.log(event.target.value)
+    validate(event);
+    // console.log(event.target.value);
   };
 
   const formSubmit = (event) => {
     event.preventDefault();
+    console.log('submited form')
   };
 
-
-  const validate = (event) =>{
-    yup.reach(SignUpFormSchema, event.target.name).validate(event.target.value)
-    .then(valid =>{
+  const validate = (event) => {
+    yup
+      .reach(SignUpFormSchema, event.target.name)
+      .validate(event.target.value)
+      .then((valid) => {
         setErrors({
-            ...errors,
-            [event.target.name]: ""
-        })
-    })
-    .catch(error =>{
-        console.log(error.errors)
+          ...errors,
+          [event.target.name]: "",
+        });
+      })
+      .catch((error) => {
+        console.log(error.errors);
         setErrors({
-            ...errors,
-            [event.target.name] : error.errors[0]
-        })
-    })
-}
-
-
-
-
-
-
-
+          ...errors,
+          [event.target.name]: error.errors[0],
+        });
+      });
+  };
 
   return (
-    <form onSubmit={formSubmit}>
-
+    <form onSubmit={formSubmit} className="signUpForm">
       <h1>Sign Up</h1>
       {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
-      {errors.passwordConfirmation.length > 0 ? <p className="error">{errors.passwordConfirmation}</p> : null}
+      {errors.passwordConfirmation.length > 0 ? (
+        <p className="error">{errors.passwordConfirmation}</p>
+      ) : null}
 
       <label htmlFor="name">
         <input
@@ -88,8 +83,7 @@ export default function SignInForm() {
           value={formState.name}
         />
       </label>
-     
-      
+
       <label htmlFor="password">
         <input
           type="password"
@@ -99,7 +93,6 @@ export default function SignInForm() {
           onChange={loginInputChange}
           value={formState.password}
         />
-        
       </label>
       <label htmlFor="passwordConfirmation">
         <input
@@ -110,7 +103,6 @@ export default function SignInForm() {
           onChange={loginInputChange}
           value={formState.passwordConfirmation}
         />
-        
       </label>
       <button disabled={loginButtonDisabled}>LOGIN</button>
     </form>

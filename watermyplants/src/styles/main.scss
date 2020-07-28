@@ -1,0 +1,47 @@
+.signUpForm {
+  background-color: rgba(255, 255, 255, 0.767);
+  padding: 60px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  justify-content: center;
+  margin: 0 auto;
+
+  input {
+    padding: 10px;
+    margin: 10px;
+  }
+  button {
+    padding: 20px;
+    width: 300px;
+    align-self: center;
+    background: rgba(74, 145, 145, 0.699);
+    color: black;
+  }
+}
+
+.loginForm {
+  background-color: rgba(255, 255, 255, 0.767);
+  padding: 60px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  justify-content: center;
+  margin: 0 auto;
+
+  input {
+    padding: 10px;
+    margin: 10px;
+  }
+  button {
+    padding: 20px;
+    width: 300px;
+    align-self: center;
+    background: rgba(74, 145, 145, 0.699);
+    color: black;
+  }
+}
