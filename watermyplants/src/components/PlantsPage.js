@@ -1,16 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import PlantCard from './PlantCard'
 import NewPlantForm from './NewPlantForm'
+import { connect } from 'react-redux';
 
-
-export default function PlantsPage (props) {
-    
+function PlantsPage(props) {
+    console.log(props.plants)
     return (
-        
+
         <div>
-            <PlantCard/>
-            <NewPlantForm/>
+            {props.plants.map(plnt => {
+                return (
+                    <PlantCard
+                        key={plnt.id}
+                        plants={plnt}
+                    />
+                )
+
+            })
+            }
+            <NewPlantForm />
         </div>
     )
-    
+
 }
+
+const mapStateToProps = state => {
+    return {
+        plants: state.plantsReducer.plants
+    }
+}
+
+export default connect(mapStateToProps, {})(PlantsPage);

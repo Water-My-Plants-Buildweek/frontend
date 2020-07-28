@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react'
 
 export default function PlantsPage(props) {
 
-    const plants = {
-        name: 'Bob',
-        species: 'snake plant',
-        h2oFrequency: 2,
-        imageURL: 'https://images.unsplash.com/photo-1547516508-e910d368d995?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
-    }
+    // const plants = {
+    //     name: 'Bob',
+    //     species: 'snake plant',
+    //     h2oFrequency: 2,
+    //     imageURL: 'https://images.unsplash.com/photo-1547516508-e910d368d995?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
+    // }
 
-    // const {plants} = props
+    const {plants} = props
 
     return (
 

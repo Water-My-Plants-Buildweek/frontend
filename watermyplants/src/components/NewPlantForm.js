@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import PlantCard from './PlantCard'
 
 const initialPlantFormValues = {
     nickname: '',
