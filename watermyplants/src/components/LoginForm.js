@@ -41,30 +41,37 @@ export default function LoginForm() {
     event.preventDefault();
   };
 
-
   const validate = (event) => {
-    yup.reach(loginFormSchema, event.target.name).validate(event.target.value)
-      .then(valid => {
+    yup
+      .reach(loginFormSchema, event.target.name)
+      .validate(event.target.value)
+      .then((valid) => {
         setErrors({
           ...errors,
-          [event.target.name]: ""
+          [event.target.name]: "",
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error.errors);
         setErrors({
           ...errors,
-          [event.target.name]: error.errors[0]
+          [event.target.name]: error.errors[0],
         });
       });
   };
 
   return (
-    <form onSubmit={formSubmit}>
-
+    <form onSubmit={formSubmit} className="loginForm">
       <h1>Login</h1>
+      <img
+        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png"
+        className="formPicIcon"
+      />
+
       {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
-      {errors.password.length > 0 ? <p className="error">{errors.password}</p> : null}
+      {errors.password.length > 0 ? (
+        <p className="error">{errors.password}</p>
+      ) : null}
 
       <label htmlFor="name">
         <input
@@ -76,7 +83,6 @@ export default function LoginForm() {
           value={formState.name}
         />
       </label>
-
 
       <label htmlFor="password">
         <input

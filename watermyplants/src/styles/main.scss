@@ -1,3 +1,75 @@
+.signUpForm {
+  // background: rgba(67, 153, 153, 0.966);
+  background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
+  padding: 40px;
+  width: 470px;
+  height: 620px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  justify-content: center;
+  margin: 70px auto;
+  border-radius: 30px;
+  color: black;
+  opacity: 0.94;
+
+  .formPicIcon {
+    width: 100px;
+    margin: 0 auto;
+  }
+
+  input {
+    padding: 10px;
+    margin: 10px;
+    border: 0;
+    border-bottom: 1px solid black;
+    width: 300px;
+  }
+  button {
+    padding: 20px;
+    width: 300px;
+    align-self: center;
+    background: rgba(74, 145, 145, 0.829);
+    color: black;
+    margin-top: 25px;
+  }
+}
+
+.loginForm {
+  background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
+  padding: 40px;
+  width: 470px;
+  height: 620px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  justify-content: center;
+  margin: 70px auto;
+  border-radius: 30px;
+  color: black;
+  opacity: 0.94;
+
+  .formPicIcon {
+    width: 100px;
+    margin: 0 auto;
+  }
+
+  input {
+    padding: 10px;
+    margin: 10px;
+    border: 0;
+    border-bottom: 1px solid black;
+    width: 300px;
+  }
+  button {
+    padding: 20px;
+    width: 300px;
+    align-self: center;
+    background: rgba(74, 145, 145, 0.829);
+    color: black;
+    margin-top: 25px;
+  }
+}
 .account-form-container {
     
     border: 2px solid black;
