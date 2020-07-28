@@ -1,4 +1,5 @@
 import React from 'react';
+import AccountForm from './components/AccountForm.js'
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
 import Header from './components/Header';
@@ -16,6 +17,9 @@ const App = () => {
         </Route>
         <Route path="/signup">
           <SignUpForm />
+        </Route>
+        <Route path="/account">
+          <AccountForm />
         </Route>
       </Switch>
     </div>
