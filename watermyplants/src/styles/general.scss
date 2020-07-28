@@ -4,13 +4,14 @@ body {
   background-size: cover;
   font-family: "Kalam", cursive;
 
+
   header {
     display: flex;
     width: 100%;
     background: #1a3c40;
     justify-content: space-around;
     font-size: 2.3rem;
-    height: 20vh;
+    height: 12vh;
     align-items:center;
     
 
@@ -18,6 +19,7 @@ body {
     h1 {
       color: #e4eddb;
       margin: 40px;
+      padding: 30px;
   
     }
 

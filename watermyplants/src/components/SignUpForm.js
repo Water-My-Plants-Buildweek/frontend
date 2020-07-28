@@ -85,6 +85,7 @@ export default function SignInForm() {
         src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png" alt=""
         className="formPicIcon"
       />
+     
       {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
       {errors.password.length > 0 ? (
         <p className="error">{errors.password}</p>
@@ -94,6 +95,7 @@ export default function SignInForm() {
       ) : null}
 
       <label htmlFor="name">
+      <i class="fa fa-user icon"></i>
         <input
           type="text"
           id="name"
@@ -105,6 +107,7 @@ export default function SignInForm() {
       </label>
 
       <label htmlFor="password">
+      <i class="fa fa-key icon"></i>
         <input
           type="password"
           id="password"
@@ -115,6 +118,7 @@ export default function SignInForm() {
         />
       </label>
       <label htmlFor="passwordConfirmation">
+      <i class="fa fa-key icon"></i>
         <input
           type="password"
           id="passwordConfirmation"

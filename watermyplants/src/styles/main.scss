@@ -9,6 +9,7 @@
   font-size: 1.8rem;
   align-items: center;
   margin: 100px auto;
+
   border-radius: 30px;
   color: black;
   opacity: 0.94;
@@ -22,7 +23,7 @@
   input {
     padding: 10px;
     margin: 10px;
-    border: 0;
+    border-radius: 30px;
     border-bottom: 1px solid black;
     width: 300px;
     font-family: "Kalam", cursive;
@@ -35,6 +36,9 @@
     color: black;
     margin-top: 25px;
     font-family: "Kalam", cursive;
+  }
+  h1{
+    padding: 10px;
   }
 }
 
@@ -57,11 +61,16 @@
     width: 100px;
     margin: 10px auto;
   }
+  .formLink{
+    text-decoration: none;
+    margin: 30px;
+    color: rgb(27, 33, 39);
+  }
 
   input {
     padding: 10px;
     margin: 10px;
-    border: 0;
+    border-radius: 30px;
     border-bottom: 1px solid black;
     width: 300px;
     font-family: "Kalam", cursive;
@@ -74,6 +83,9 @@
     color: black;
     margin-top: 25px;
     font-family: "Kalam", cursive;
+  }
+  h1{
+    padding: 10px;
   }
 }
 .account-form-container {

@@ -98,6 +98,7 @@ export default function LoginForm() {
       ) : null}
 
       <label htmlFor="name">
+      <i class="fa fa-user icon"></i>
         <input
           type="text"
           id="name"
@@ -105,10 +106,12 @@ export default function LoginForm() {
           placeholder="Username"
           onChange={loginInputChange}
           value={formState.username}
+          
         />
       </label>
 
       <label htmlFor="password">
+      <i class="fa fa-key icon"></i>
         <input
           type="password"
           id="password"
@@ -119,6 +122,7 @@ export default function LoginForm() {
         />
       </label>
       <button disabled={loginButtonDisabled}>LOGIN</button>
+      <a href="#" className="formLink">Forgot Username/Password?</a>
     </form>
   );
 }
