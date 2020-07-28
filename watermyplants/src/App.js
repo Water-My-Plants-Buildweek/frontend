@@ -5,6 +5,8 @@ import SignUpForm from './components/SignUpForm';
 import Header from './components/Header';
 import PlantsPage from './components/PlantsPage';
 import { Route, Link, Switch } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
+import LogOutPage from './components/LogOutPage';
 
 const App = () => {
   return (
@@ -20,11 +22,14 @@ const App = () => {
         <Route path="/signup">
           <SignUpForm />
         </Route>
-        <Route path="/account">
+        <PrivateRoute path="/account">
           <AccountForm />
-        </Route>
-        <Route path='/plants'>
+        </PrivateRoute>
+        <PrivateRoute path='/plants'>
           <PlantsPage />
+        </PrivateRoute>
+        <Route path='/logout'>
+          <LogOutPage />
         </Route>
       </Switch>
     </div>

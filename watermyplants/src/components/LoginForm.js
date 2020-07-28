@@ -1,21 +1,12 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { loginFormSchema } from "../validation/loginFormSchema";
-import axios from "axios";
-import { useHistory } from "react-router-dom";
-
-export function login(postObj) {
-  axios
-    .post("https://water-my-pants.herokuapp.com/api/auth/login", postObj)
-    .then((response) => {
-      localStorage.setItem("token", response.data.token);
-    })
-    .catch((error) => {
-      console.log("Error happend with the post request", error);
-    });
-}
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import { login } from '../utils/login';
 
 export default function LoginForm() {
+
   const history = useHistory();
   //created object with name and password and assigned to
   //variables below
@@ -53,9 +44,8 @@ export default function LoginForm() {
 
   const formSubmit = (event) => {
     event.preventDefault();
-    console.log("this is formstate", formState);
-    login(formState);
-    history.push("/plants");
+    console.log('this is formstate', formState);
+    login(formState, history)
   };
 
   const validate = (event) => {

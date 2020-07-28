@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { SignUpFormSchema } from "../validation/SignUpFormSchema";
-import axios from "axios";
-import { login } from "./LoginForm";
+import axios from 'axios';
+import { login } from '../utils/login';
+import { useHistory } from 'react-router-dom';
 
 export default function SignInForm() {
   //created object with name and password and assigned to
@@ -17,6 +18,7 @@ export default function SignInForm() {
     password: "",
     passwordConfirmation: "",
   };
+  const history = useHistory()
 
   //passed in the variables inside of useState as an arguement
   const [formState, setFormState] = useState(initialFormState);
@@ -44,20 +46,21 @@ export default function SignInForm() {
   const formSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(
-        "https://water-my-pants.herokuapp.com/api/auth/register",
-        formattedFormValues()
-      )
-      .then((response) => {
-        login(formattedFormValues());
+      .post('https://water-my-pants.herokuapp.com/api/auth/register', formattedFormValues())
+      .then(response => {
+        login(formattedFormValues(), history);
       })
-      .catch((error) => {
-        console.log("Error happend with the post request", error);
+      .catch(error => {
+        console.log('Error happend with the post request', error);
       });
+
   };
 
   function formattedFormValues() {
-    return { username: formState.username, password: formState.password };
+    return {
+      username: formState.username,
+      password: formState.password
+    };
   }
 
   const validate = (event) => {
