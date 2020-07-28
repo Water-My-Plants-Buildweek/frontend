@@ -1,13 +1,13 @@
 .account-form-container {
     
     border: 2px solid black;
-    width: 30%;
-    margin: 5% auto;
-    padding: 5%;
+    width: 300px;
+    margin: 10rem auto;
 
 
     form {
         @include flex(column, center, center, no-wrap);
+        line-height: 3rem;
     }
 
     .error {

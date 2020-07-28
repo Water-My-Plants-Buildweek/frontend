@@ -1,88 +1,142 @@
 import React, { useState, useEffect } from 'react'
 import * as yup from 'yup'
-import accountFormSchema from '../validation/accountFormSchema'
+import passwordFormSchema from '../validation/passwordFormSchema'
+import phoneFormSchema from '../validation/phoneFormSchema'
 
 //setting up default form values so that fields are empty
-const initialFormValues = {
-    phone: '',
+
+const initialPhoneValue = {
+    phone: ""}
+
+const initialPasswordValues = {
     password: '',
     passwordConfirm: ''
 }
 
 //setting up default error values so that no errors appear
-const initialFormErrors = {
-    phone: '',
+
+const initialPhoneError = {
+    phone: ""}
+
+const initialPasswordErrors = {
     password: '',
     passwordConfirm: ''
 }
 
+
 //initializes that submit button as disabled
-const intitialDisabled = true
+const intitialDisabledPhone = true
+const intitialDisabledPassword = true
 
 export default function AccountForm(props) {
     /////  STATE  /////
-    const [formValues, setFormValues] = useState(initialFormValues)
-    const [formErrors, setFormErrors] = useState(initialFormErrors)
-    const [disabled, setDisabled] = useState(intitialDisabled)
+    const [passwordValues, setPasswordValues] = useState(initialPasswordValues)
+    const [passwordErrors, setPasswordErrors] = useState(initialPasswordErrors)
+    const [phone, setPhone] = useState(initialPhoneValue)
+    const [phoneError, setPhoneError] = useState(initialPhoneError)
+    const [disabledPhone, setDisabledPhone] = useState(intitialDisabledPhone)
+    const [disabledPassword, setDisabledPassword] = useState(intitialDisabledPassword)
 
-    const onInputChange = evt => {
+
+    const onPhoneSubmit = evt => {
+        evt.preventDefault()
+        setPhone(initialPhoneValue)
+      }
+
+      const onPasswordSubmit = evt => {
+        evt.preventDefault()
+        setPasswordValues(initialPasswordValues)
+      }
+
+    const onPhoneChange = evt => {
         const name = evt.target.name
         const value = evt.target.value
-        inputChange(name, value)
+        
+        yup //phone validation
+        .reach(phoneFormSchema, name)
+        .validate(value)
+        .then(valid => {
+            setPhoneError({
+                ...phoneError,
+                [name]: "",
+            })
+        })
+        .catch(err => {
+            setPhoneError({
+                ...phoneError,
+                [name]: err.errors[0],
+            })
+        })
+
+    //state
+    setPhone({...phone,
+        [name]: value
+    })
     }
 
-    //callback function
-    const inputChange = (name, value) => {
-
-        yup //validation
-            .reach(accountFormSchema, name)
-            .validate(value)
-            .then(valid => {
-                setFormErrors({
-                    ...formErrors,
-                    [name]: "",
-                })
+    const onPasswordChange = evt => {
+        const name = evt.target.name
+        const value = evt.target.value
+        
+        yup //passwor validation
+        .reach(passwordFormSchema, name)
+        .validate(value)
+        .then(valid => {
+            setPasswordErrors({
+                ...passwordErrors,
+                [name]: "",
             })
-            .catch(err => {
-                setFormErrors({
-                    ...formErrors,
-                    [name]: err.errors[0],
-                })
-            })
-
-        //state
-        setFormValues({
-            ...formValues,
-            [name]: value
         })
+        .catch(err => {
+            setPasswordErrors({
+                ...passwordErrors,
+                [name]: err.errors[0],
+            })
+
+        })
+    setPasswordValues({
+        ...passwordValues,
+        [name]: value
+    })
     }
 
     //enables submit button once validation is met
     useEffect(() => {
-        accountFormSchema.isValid(formValues).then(valid => {
-          setDisabled(!valid)
+       phoneFormSchema.isValid(phone).then(valid => {
+          setDisabledPhone(!valid)
         })
-      }, [formValues])
+      }, [phone])
+
+    useEffect(() => {
+        passwordFormSchema.isValid(passwordValues).then(valid => {
+          setDisabledPassword(!valid)
+        })
+      }, [passwordValues])
 
     return (
+        
         <div className='account-form-container'>
-            <form>
+            <h2>Edit Account Information</h2>
+            <form onSubmit={onPhoneSubmit} className = 'change-email'>
                 <label htmlFor='phone'>
                     <input
                         placeholder="Enter phone number"
-                        value={formValues.phone}
-                        onChange={onInputChange}
+                        value={phone.phone}
+                        onChange={onPhoneChange}
                         name='phone'
                     />
                 </label>
+                <button className='submit-btn button' disabled={disabledPhone}>Update</button>
+            </form>
+            <form onSubmit={onPasswordSubmit} className='change-password'>
                 <label htmlFor='password'>
                     <input
                         id='password'
                         name='password'
                         type='password'
                         placeholder='Enter New Password'
-                        value={formValues.password}
-                        onChange={onInputChange}
+                        value={passwordValues.password}
+                        onChange={onPasswordChange}
 
                     />
                 </label>
@@ -92,17 +146,17 @@ export default function AccountForm(props) {
                         name='passwordConfirm'
                         type='password'
                         placeholder='Confirm New Password'
-                        value={formValues.passwordConfirm}
-                        onChange={onInputChange}
+                        value={passwordValues.passwordConfirm}
+                        onChange={onPasswordChange}
                     />
                 </label>
 
-                <button className='submit-btn' disabled={disabled}>Update</button>
+                <button className='submit-btn button' disabled={disabledPassword}>Update</button>
             </form>
             <div className='errors'>
-                <div>{formErrors.phone}</div>
-                <div>{formErrors.password}</div>
-                <div>{formErrors.passwordConfirm}</div>
+                <div>{phoneError.phone}</div>
+                <div>{passwordErrors.password}</div>
+                <div>{passwordErrors.passwordConfirm}</div>
             </div>
         </div>
 
