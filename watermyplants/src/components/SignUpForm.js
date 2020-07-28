@@ -15,14 +15,6 @@ export default function SignInForm() {
     password: "",
     passwordConfirmation: "",
   };
-<<<<<<< HEAD
-=======
-  const initialErrors = {
-    name: "",
-    password: "",
-    passwordConfirmation: ""
-  };
->>>>>>> 1e81465ddad1bb83ab27a398f8d89938f76c0ce1
 
   //passed in the variables inside of useState as an arguement
   const [formState, setFormState] = useState(initialFormState);
@@ -33,10 +25,6 @@ export default function SignInForm() {
   // all form input values are valid before the user is able to click submit
   useEffect(() => {
     SignUpFormSchema.isValid(formState).then((valid) => {
-<<<<<<< HEAD
-=======
-      console.log('this is valid', valid);
->>>>>>> 1e81465ddad1bb83ab27a398f8d89938f76c0ce1
       setLoginButtonDisabled(!valid);
       if (valid) {
         setErrors(initialErrors);
@@ -50,11 +38,7 @@ export default function SignInForm() {
     event.persist();
     setFormState({ ...formState, [event.target.name]: event.target.value });
     validate(event);
-<<<<<<< HEAD
     // console.log(event.target.value);
-=======
-    console.log(event.target.value);
->>>>>>> 1e81465ddad1bb83ab27a398f8d89938f76c0ce1
   };
 
   const formSubmit = (event) => {
@@ -62,23 +46,6 @@ export default function SignInForm() {
     console.log("submited form");
   };
 
-<<<<<<< HEAD
-  const validate = (event) => {
-    yup
-      .reach(SignUpFormSchema, event.target.name)
-      .validate(event.target.value)
-      .then((valid) => {
-        setErrors({
-          ...errors,
-          [event.target.name]: "",
-        });
-      })
-      .catch((error) => {
-        console.log(error.errors);
-        setErrors({
-          ...errors,
-          [event.target.name]: error.errors[0],
-=======
 
   const validate = (event) => {
     yup.reach(SignUpFormSchema, event.target.name).validate(event.target.value)
@@ -93,7 +60,6 @@ export default function SignInForm() {
         setErrors({
           ...errors,
           [event.target.name]: error.errors[0]
->>>>>>> 1e81465ddad1bb83ab27a398f8d89938f76c0ce1
         });
       });
   };
@@ -124,10 +90,6 @@ export default function SignInForm() {
         />
       </label>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 1e81465ddad1bb83ab27a398f8d89938f76c0ce1
       <label htmlFor="password">
         <input
           type="password"
@@ -137,10 +99,6 @@ export default function SignInForm() {
           onChange={loginInputChange}
           value={formState.password}
         />
-<<<<<<< HEAD
-=======
-
->>>>>>> 1e81465ddad1bb83ab27a398f8d89938f76c0ce1
       </label>
       <label htmlFor="passwordConfirmation">
         <input
@@ -151,10 +109,6 @@ export default function SignInForm() {
           onChange={loginInputChange}
           value={formState.passwordConfirmation}
         />
-<<<<<<< HEAD
-=======
-
->>>>>>> 1e81465ddad1bb83ab27a398f8d89938f76c0ce1
       </label>
       <button disabled={loginButtonDisabled}>LOGIN</button>
     </form>
