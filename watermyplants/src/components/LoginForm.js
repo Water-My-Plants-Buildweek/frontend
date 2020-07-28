@@ -63,6 +63,8 @@ export default function LoginForm() {
   return (
     <form onSubmit={formSubmit} className="loginForm">
       <h1>Login</h1>
+      <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png" className="formPicIcon"/>
+    
       {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
       {errors.password.length > 0 ? (
         <p className="error">{errors.password}</p>

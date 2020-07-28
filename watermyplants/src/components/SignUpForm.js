@@ -68,7 +68,11 @@ export default function SignInForm() {
   return (
     <form onSubmit={formSubmit} className="signUpForm">
       <h1>Sign Up</h1>
+      <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png" className="formPicIcon"/>
       {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
+      {errors.password.length > 0 ? (
+        <p className="error">{errors.password}</p>
+      ) : null}
       {errors.passwordConfirmation.length > 0 ? (
         <p className="error">{errors.passwordConfirmation}</p>
       ) : null}
@@ -84,7 +88,8 @@ export default function SignInForm() {
         />
       </label>
 
-      <label htmlFor="password">
+      <label htmlFor="password"> 
+      
         <input
           type="password"
           id="password"
