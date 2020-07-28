@@ -13,17 +13,18 @@ function PlantsPage(props) {
 
         <div className='plant-card-container'>
             <a className='round-button add'></a>
+            <NewPlantForm />
             {props.plants.map(plnt => {
                 return (
+                    
                     <PlantCard
                         key={plnt.id}
                         plants={plnt}
                     />
                 )
-
             })
             }
-            <NewPlantForm />
+            
         </div>
     )
 
