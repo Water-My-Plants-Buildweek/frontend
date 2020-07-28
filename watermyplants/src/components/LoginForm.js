@@ -1,16 +1,35 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { loginFormSchema } from "../validation/loginFormSchema";
+import axios from 'axios'
+import {useHistory} from 'react-router-dom'
+
+
+
+
+export function login(postObj){
+  axios
+  .post('https://water-my-pants.herokuapp.com/api/auth/login', postObj)
+  .then(response=>{
+    localStorage.setItem("token", response.data.token);
+  })
+  .catch(error=>{
+    console.log('Error happend with the post request', error)
+  })
+}
+
 
 export default function LoginForm() {
+  
+  const history = useHistory()
   //created object with name and password and assigned to
   //variables below
   const initialFormState = {
-    name: "",
+    username: "",
     password: "",
   };
   const initialErrors = {
-    name: "",
+    username: "",
     password: ""
   };
 
@@ -39,7 +58,12 @@ export default function LoginForm() {
 
   const formSubmit = (event) => {
     event.preventDefault();
+    console.log('this is formstate',formState);
+    login(formState)
+    history.push('/plants')
   };
+
+
 
   const validate = (event) => {
     yup
@@ -68,7 +92,7 @@ export default function LoginForm() {
         className="formPicIcon"
       />
 
-      {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
+      {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
       {errors.password.length > 0 ? (
         <p className="error">{errors.password}</p>
       ) : null}
@@ -77,10 +101,10 @@ export default function LoginForm() {
         <input
           type="text"
           id="name"
-          name="name"
+          name="username"
           placeholder="Username"
           onChange={loginInputChange}
-          value={formState.name}
+          value={formState.username}
         />
       </label>
 
