@@ -88,7 +88,7 @@ export default function LoginForm() {
     <form onSubmit={formSubmit} className="loginForm">
       <h1>Login</h1>
       <img
-        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png"
+        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png" alt=""
         className="formPicIcon"
       />
 

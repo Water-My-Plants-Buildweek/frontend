@@ -82,7 +82,7 @@ export default function SignInForm() {
     <form onSubmit={formSubmit} className="signUpForm">
       <h1>Sign Up</h1>
       <img
-        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png"
+        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png" alt=""
         className="formPicIcon"
       />
       {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
