@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { SignUpFormSchema } from "../validation/SignUpFormSchema";
+import axios from 'axios';
+import { login } from '../utils/login';
+import { useHistory } from 'react-router-dom';
 
 export default function SignInForm() {
   //created object with name and password and assigned to
   //variables below
   const initialFormState = {
-    name: "",
+    username: "",
     password: "",
     passwordConfirmation: "",
   };
   const initialErrors = {
-    name: "",
+    username: "",
     password: "",
     passwordConfirmation: "",
   };
+  const history = useHistory()
 
   //passed in the variables inside of useState as an arguement
   const [formState, setFormState] = useState(initialFormState);
@@ -32,7 +36,7 @@ export default function SignInForm() {
     });
   }, [formState]);
 
-  //this variable i inserted inside of onChange of name and password input
+
 
   const loginInputChange = (event) => {
     event.persist();
@@ -43,9 +47,23 @@ export default function SignInForm() {
 
   const formSubmit = (event) => {
     event.preventDefault();
-    console.log("submited form");
+    axios
+      .post('https://water-my-pants.herokuapp.com/api/auth/register', formattedFormValues())
+      .then(response => {
+        login(formattedFormValues(), history);
+      })
+      .catch(error => {
+        console.log('Error happend with the post request', error);
+      });
+
   };
 
+  function formattedFormValues() {
+    return {
+      username: formState.username,
+      password: formState.password
+    };
+  }
 
   const validate = (event) => {
     yup.reach(SignUpFormSchema, event.target.name).validate(event.target.value)
@@ -68,10 +86,10 @@ export default function SignInForm() {
     <form onSubmit={formSubmit} className="signUpForm">
       <h1>Sign Up</h1>
       <img
-        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png"
+        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png" alt=""
         className="formPicIcon"
       />
-      {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
+      {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
       {errors.password.length > 0 ? (
         <p className="error">{errors.password}</p>
       ) : null}
@@ -83,10 +101,10 @@ export default function SignInForm() {
         <input
           type="text"
           id="name"
-          name="name"
+          name="username"
           placeholder="Username"
           onChange={loginInputChange}
-          value={formState.name}
+          value={formState.username}
         />
       </label>
 

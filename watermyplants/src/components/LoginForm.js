@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { loginFormSchema } from "../validation/loginFormSchema";
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import { login } from '../utils/login';
 
 export default function LoginForm() {
+
+  const history = useHistory();
   //created object with name and password and assigned to
   //variables below
   const initialFormState = {
-    name: "",
+    username: "",
     password: "",
   };
   const initialErrors = {
-    name: "",
+    username: "",
     password: ""
   };
 
@@ -39,7 +44,11 @@ export default function LoginForm() {
 
   const formSubmit = (event) => {
     event.preventDefault();
+    console.log('this is formstate', formState);
+    login(formState, history)
   };
+
+
 
   const validate = (event) => {
     yup
@@ -64,11 +73,11 @@ export default function LoginForm() {
     <form onSubmit={formSubmit} className="loginForm">
       <h1>Login</h1>
       <img
-        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png"
+        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png" alt=""
         className="formPicIcon"
       />
 
-      {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
+      {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
       {errors.password.length > 0 ? (
         <p className="error">{errors.password}</p>
       ) : null}
@@ -77,10 +86,10 @@ export default function LoginForm() {
         <input
           type="text"
           id="name"
-          name="name"
+          name="username"
           placeholder="Username"
           onChange={loginInputChange}
-          value={formState.name}
+          value={formState.username}
         />
       </label>
 

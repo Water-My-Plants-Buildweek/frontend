@@ -1,4 +1,4 @@
-import { ADD_PLANT, DELETE_PLANT, EDIT_PLANT } from '../actions/plantsActions';
+import { LOG_ERROR, UPDATE_PLANTS } from '../actions/plantsActions';
 
 const initialState = {
   plants: [
@@ -29,30 +29,16 @@ const initialState = {
 
 export const plantsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_PLANT:
+    case UPDATE_PLANTS:
       return {
         ...state,
-        plants: [
-          ...state.plants,
-          action.payload
-        ]
+        plants: action.payload,
+        message: ''
       };
-    case DELETE_PLANT:
+    case LOG_ERROR:
       return {
         ...state,
-        plants: state.plants.filter(plant => plant.id !== action.payload)
-      };
-    case EDIT_PLANT:
-      return {
-        ...state,
-        plants:
-          state.plants.map(plant => {
-            if (plant.id === action.payload.id) {
-              return action.payload;
-            } else {
-              return plant;
-            }
-          })
+        message: action.payload
       };
     default:
       return state;

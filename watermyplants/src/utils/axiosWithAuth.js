@@ -6,6 +6,6 @@ export const axiosWithAuth = () => {
     headers: {
       Authorization: token
     },
-    baseURL: "http://localhost:5000" //change when backend is deployed
+    baseURL: "https://water-my-pants.herokuapp.com/"
   });
 };
