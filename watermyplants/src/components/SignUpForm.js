@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { SignUpFormSchema } from "../validation/SignUpFormSchema";
-import axios from 'axios'
-import {login} from './LoginForm'
+import axios from "axios";
+import { login } from "./LoginForm";
 
 export default function SignInForm() {
   //created object with name and password and assigned to
@@ -34,8 +34,6 @@ export default function SignInForm() {
     });
   }, [formState]);
 
-
-
   const loginInputChange = (event) => {
     event.persist();
     setFormState({ ...formState, [event.target.name]: event.target.value });
@@ -46,48 +44,54 @@ export default function SignInForm() {
   const formSubmit = (event) => {
     event.preventDefault();
     axios
-    .post('https://water-my-pants.herokuapp.com/api/auth/register', formattedFormValues())
-    .then(response=>{
-      login(formattedFormValues())
-    })
-    .catch(error=>{
-      console.log('Error happend with the post request', error)
-    })
-    
+      .post(
+        "https://water-my-pants.herokuapp.com/api/auth/register",
+        formattedFormValues()
+      )
+      .then((response) => {
+        login(formattedFormValues());
+      })
+      .catch((error) => {
+        console.log("Error happend with the post request", error);
+      });
   };
- 
-  function formattedFormValues(){
-    return {username: formState.username,
-           password: formState.password }
+
+  function formattedFormValues() {
+    return { username: formState.username, password: formState.password };
   }
 
   const validate = (event) => {
-    yup.reach(SignUpFormSchema, event.target.name).validate(event.target.value)
-      .then(valid => {
+    yup
+      .reach(SignUpFormSchema, event.target.name)
+      .validate(event.target.value)
+      .then((valid) => {
         setErrors({
           ...errors,
-          [event.target.name]: ""
+          [event.target.name]: "",
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error.errors);
         setErrors({
           ...errors,
-          [event.target.name]: error.errors[0]
+          [event.target.name]: error.errors[0],
         });
       });
   };
 
   return (
     <form onSubmit={formSubmit} className="signUpForm">
-      
       <h1>Sign Up</h1>
       <img
-        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png" alt=""
+        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png"
+        alt=""
         className="formPicIcon"
       />
-     
-      {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
+      
+
+      {errors.username.length > 0 ? (
+        <p className="error">{errors.username}</p>
+      ) : null}
       {errors.password.length > 0 ? (
         <p className="error">{errors.password}</p>
       ) : null}
@@ -96,7 +100,7 @@ export default function SignInForm() {
       ) : null}
 
       <label htmlFor="name">
-      <i class="fa fa-user icon"></i>
+        <i class="fa fa-user icon"></i>
         <input
           type="text"
           id="name"
@@ -108,7 +112,7 @@ export default function SignInForm() {
       </label>
 
       <label htmlFor="password">
-      <i class="fa fa-key icon"></i>
+        <i class="fa fa-key icon"></i>
         <input
           type="password"
           id="password"
@@ -119,7 +123,7 @@ export default function SignInForm() {
         />
       </label>
       <label htmlFor="passwordConfirmation">
-      <i class="fa fa-key icon"></i>
+        <i class="fa fa-key icon"></i>
         <input
           type="password"
           id="passwordConfirmation"
