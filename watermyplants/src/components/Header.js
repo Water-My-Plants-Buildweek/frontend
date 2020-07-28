@@ -9,9 +9,9 @@ export default function Header() {
       <nav>
         <Link to="/signup" className="link">Sign Up</Link>
         <Link to="/login" className="link">Login</Link>
-        <Link to="" className="link">Plants</Link>
-        <Link to="" className="link">Account</Link>
-        <Link to="" className="link">Log Out</Link>
+        <Link to="/plants" className="link">Plants</Link>
+        <Link to="/account" className="link">Account</Link>
+        <Link to="/logout" className="link">Log Out</Link>
       </nav>
     </header>
   );
