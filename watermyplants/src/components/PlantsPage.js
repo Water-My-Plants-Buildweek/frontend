@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import PlantCard from './PlantCard'
 import NewPlantForm from './NewPlantForm'
+import { connect } from 'react-redux';
 
-export default function PlantsPage (props) {
+function PlantsPage (props) {
     
     return (
         
@@ -13,3 +14,11 @@ export default function PlantsPage (props) {
     )
     
 }
+
+const mapStateToProps = state => {
+    return {
+        plants: state.plantsReducer.plants
+    }
+}
+
+export default connect(mapStateToProps, {})(PlantsPage);
