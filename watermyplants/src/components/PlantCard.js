@@ -13,8 +13,9 @@ export default function PlantsPage(props) {
             <p>{plants.species}</p>
             <h3>Water</h3>
             <p>every{` ${plants.h2oFrequency} `}days</p>
-            <div className='edit-delete-buttons'>
+            <div className='card-buttons'>
             <a className='round-button edit'></a>
+            <a className='round-button droplet'></a>
             <a className='round-button delete'></a>
             </div>
             

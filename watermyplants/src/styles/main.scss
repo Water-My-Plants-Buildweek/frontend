@@ -78,25 +78,27 @@
 }
 
 .plant-card {
-    
-  border: 2px solid black;
-  width: 300px;
-  margin: 10rem auto;
-  background-color: lightgreen;
+  background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
+  width: 310px;  
+  margin: 70px auto;
+  border-radius: 30px;
+  color: black;
+  opacity: 0.94;
   @include flex(column, center, center, no-wrap);
 
 
   h2 {
-    margin: 30px;  
+    margin: 10px;  
   }
 
   img {
     width: 70%
   }
 
-  .edit-delete-buttons{
+  .card-buttons{
     @include flex(row, center, center, no-wrap);
   }
+
 }
 
 .account-form-container {
@@ -135,10 +137,10 @@
     border-radius: 50%;
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
     float:left;
-    height: 70px;
-    margin: 30px;
+    height: 50px;
+    margin: 10px;
     position: relative;
-    width: 70px;			
+    width: 50px;			
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
 
@@ -169,37 +171,42 @@
 }
 
 .droplet{
+  height: 70px;
+  width: 70px;
     &:after{
         content: "🌢";
         left: 20px;
         top: 14px;
-
-        &:hover:after{
-            color:lightblue;
-            text-shadow:0px 0px 6px lightblue;
-            top: 14px;
-        }
     }
+    &:hover:after{
+      color:lightblue;
+      text-shadow:0px 0px 6px lightblue;
+      top: 14px;
+  }
 }
 
-.add:after{
-    content: "+";
-    font-size: 2rem;
-    left: 29px;
-    top: 25px;
+.add{
+  height: 70px;
+  width: 70px;
+&:after{
+  content: "+";
+  font-size: 2rem;
+  left: 29px;
+  top: 25px;
+}
+&:hover:after{
+  color:lightblue;
+  text-shadow:0px 0px 6px green;
+}
 }
 
-.add:hover:after{
-    color:lightblue;
-    text-shadow:0px 0px 6px green;
-}
 
 
 .delete{
   &:after{
     content: "✖";
-    left: 24px;
-    top: 15px;
+    left: 13px;
+    top: 5px;
   }
   &:hover:after{
     color:#eb2f2f;
@@ -210,8 +217,8 @@
 .edit{
   &:after{
     content: "✐";
-    left: 20px;
-    top: 13px;
+    left: 11px;
+    top: 4px;
   }
   &:hover:after{
     color:brown;
