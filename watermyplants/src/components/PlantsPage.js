@@ -24,7 +24,7 @@ function PlantsPage(props) {
                     
                     <PlantCard
                         key={plnt.id}
-                        plants={plnt}
+                        plant={plnt}
                     />
                 )
             })

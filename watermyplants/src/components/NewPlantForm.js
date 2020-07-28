@@ -1,24 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import PlantCard from './PlantCard'
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { addPlant } from '../actions/plantsActions';
 
 const initialPlantFormValues = {
     nickname: '',
     species: '',
-    h20Frequecy: 1,
+    h2oFrequency: 1,
     imageURL: ''
 
 }
 
+function formattedPlantValues (plant) {
+    return {...plant, ['water-frequency']:Number(plant.h2oFrequency)}
+    
+}
 
-
-export default function NewPlantForm(props) {
+function NewPlantForm(props) {
 
     const [plantFormValues, setPlantFormValues] = useState(initialPlantFormValues)
 
     const onSubmit = evt => {
         evt.preventDefault()
+        props.addPlant(formattedPlantValues(plantFormValues))
+        
+        console.log(formattedPlantValues(plantFormValues))
         setPlantFormValues(initialPlantFormValues)
-        //add functionality to close page
     }
 
     const onChange = evt => {
@@ -39,7 +45,7 @@ export default function NewPlantForm(props) {
                 <label htmlFor='nickname'>
                     <input
                         placeholder="Nickname"
-                        value={plantFormValues.name}
+                        value={plantFormValues.nickname}
                         onChange={onChange}
                         name='nickname'
                     />
@@ -58,9 +64,9 @@ export default function NewPlantForm(props) {
                         className='number-input'
                         type='number'
                         min='1'
-                        value={plantFormValues.h20Frequecy}
+                        value={plantFormValues.h2oFrequency}
                         onChange={onChange}
-                        name='h20Frequecy'
+                        name='h2oFrequency'
                     />
                     {' '} day(s)
                 </label>
@@ -82,3 +88,5 @@ export default function NewPlantForm(props) {
     )
 
 }
+
+export default connect(null, { addPlant })(NewPlantForm);
