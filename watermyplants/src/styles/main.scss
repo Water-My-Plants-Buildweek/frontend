@@ -78,6 +78,10 @@
   margin: 10rem auto;
   background-color: lightgreen;
   @include flex(column, center, center, no-wrap);
+
+  img {
+    width: 70%
+  }
 }
 
 .account-form-container {
