@@ -5,7 +5,7 @@ export default function Header() {
 
   return (
     <header>
-      <h1>Wet My Plants 🌱</h1>
+      <h1>Wet My Plants <span role="img" aria-label="emoji">🌱</span></h1>
       <nav>
         <Link to="/signup" className="link">Sign Up</Link>
         <Link to="/login" className="link">Login</Link>
