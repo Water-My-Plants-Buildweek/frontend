@@ -1,4 +1,4 @@
-import { ADD_PLANT, DELETE_PLANT, EDIT_PLANT } from '../actions/plantsActions';
+import { LOG_ERROR, UPDATE_PLANTS } from '../actions/plantsActions';
 
 const initialState = {
   plants: [
@@ -7,21 +7,21 @@ const initialState = {
       nickname: 'Leaf Erikson',
       species: 'Arctic Thyme',
       h2oFrequency: 14,
-      image: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'
+      imageURL: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'
     },
     {
       id: 1,
       nickname: 'Po',
       species: 'Bamboo',
       h2oFrequency: 1,
-      image: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'
+      imageURL: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'
     },
     {
       id: 2,
       nickname: 'Penny',
       species: 'Pennywort Begonia',
       h2oFrequency: 14,
-      image: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'
+      imageURL: 'https://images.unsplash.com/photo-1533038590840-1cde6e668a91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80'
     },
   ],
   message: ''
@@ -29,30 +29,16 @@ const initialState = {
 
 export const plantsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_PLANT:
+    case UPDATE_PLANTS:
       return {
         ...state,
-        plants: [
-          ...state.plants,
-          action.payload
-        ]
+        plants: action.payload,
+        message: ''
       };
-    case DELETE_PLANT:
+    case LOG_ERROR:
       return {
         ...state,
-        plants: state.plants.filter(plant => plant.id !== action.payload)
-      };
-    case EDIT_PLANT:
-      return {
-        ...state,
-        plants:
-          state.plants.map(plant => {
-            if (plant.id === action.payload.id) {
-              return action.payload;
-            } else {
-              return plant;
-            }
-          })
+        message: action.payload
       };
     default:
       return state;
