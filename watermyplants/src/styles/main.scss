@@ -86,14 +86,54 @@
     padding: 10px;
   }
 }
-.account-form-container {
-  border: 2px solid black;
+
+.plant-card-container {
+  @include flex(row, flex-start, center, wrap);
+  width: 70%;
+  margin: 0 auto;
+}
+
+.plant-card {
+  background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
   width: 300px;
-  margin: 10rem auto;
+  margin: 70px auto;
+  border-radius: 30px;
+  color: black;
+  opacity: 0.94;
+  @include flex(column, center, center, no-wrap);
+
+  h2 {
+    margin: 10px;
+  }
+
+  img {
+    width: 70%;
+  }
+
+  .card-buttons {
+    @include flex(row, center, center, no-wrap);
+  }
+}
+
+.account-form-container {
+  background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
+  width: 300px;
+  margin: 70px auto;
+  border-radius: 30px;
+  color: black;
+  opacity: 0.94;
+
+  h2 {
+    text-align: center;
+  }
 
   form {
     @include flex(column, center, center, no-wrap);
     line-height: 3rem;
+
+    .number-input {
+      width: 20px;
+    }
   }
 
   .error {
@@ -104,16 +144,16 @@
 }
 
 .round-button {
-  background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+  background-color: white;
   background-image: linear-gradient(top, #f4f1ee, #fff);
   border-radius: 50%;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white,
     inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5);
   float: left;
-  height: 70px;
-  margin: 0 30px 30px 0;
+  height: 50px;
+  margin: 10px;
   position: relative;
-  width: 70px;
+  width: 50px;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
 
@@ -144,28 +184,55 @@
 }
 
 .droplet {
+  height: 70px;
+  width: 70px;
   &:after {
     content: "🌢";
     left: 20px;
     top: 14px;
-
-    &:hover:after {
-      color: lightblue;
-      text-shadow: 0px 0px 6px lightblue;
-      top: 14px;
-    }
+  }
+  &:hover:after {
+    color: lightblue;
+    text-shadow: 0px 0px 6px lightblue;
+    top: 14px;
   }
 }
 
-.add:after {
-  content: "+";
-  font-size: 2rem;
-  left: 20px;
-  top: 14px;
+.add {
+  height: 70px;
+  width: 70px;
+  &:after {
+    content: "+";
+    font-size: 2rem;
+    left: 29px;
+    top: 25px;
+  }
+  &:hover:after {
+    color: lightblue;
+    text-shadow: 0px 0px 6px green;
+  }
 }
 
-.add:hover:after {
-  color: lightblue;
-  text-shadow: 0px 0px 6px lightblue;
-  top: 14px;
+.delete {
+  &:after {
+    content: "✖";
+    left: 13px;
+    top: 5px;
+  }
+  &:hover:after {
+    color: #eb2f2f;
+    text-shadow: 0px 0px 6px #eb2f2f;
+  }
+}
+
+.edit {
+  &:after {
+    content: "✐";
+    left: 11px;
+    top: 4px;
+  }
+  &:hover:after {
+    color: brown;
+    text-shadow: 0px 0px 6px brown;
+  }
 }

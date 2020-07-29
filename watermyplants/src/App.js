@@ -14,7 +14,6 @@ const App = () => {
       <header className="App-header">
         <Header />
       </header>
-
       <Switch>
         <Route path="/login">
           <LoginForm />
