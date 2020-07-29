@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AccountForm from './components/AccountForm.js';
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
@@ -7,8 +7,19 @@ import PlantsPage from './components/PlantsPage';
 import { Route, Link, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import LogOutPage from './components/LogOutPage';
+import { connect } from 'react-redux';
+import { setLoggedIn, setLoggedOut } from './actions/accountActions';
 
-const App = () => {
+const App = (props) => {
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      props.setLoggedIn();
+    } else {
+      props.setLoggedOut();
+    }
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -35,4 +46,10 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    loggedIn: state.accountReducer.loggedIn
+  }
+}
+
+export default connect(mapStateToProps, { setLoggedIn, setLoggedOut })(App);

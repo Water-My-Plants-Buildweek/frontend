@@ -1,13 +1,15 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setLoggedIn } from '../actions/accountActions';
 
-//Determine format for Route, then change as needed
-const PrivateRoute = ({ children, ...rest }) => {
+const PrivateRoute = ({ children, setLoggedIn, ...rest }) => {
   return (
     <Route
       {...rest}
       render={() => {
         if (localStorage.getItem("token")) {
+          setLoggedIn()
           return { ...children };
         } else {
           return <Redirect to="/login" />;
@@ -17,4 +19,4 @@ const PrivateRoute = ({ children, ...rest }) => {
   );
 };
 
-export default PrivateRoute;
+export default connect(null, { setLoggedIn })(PrivateRoute);
