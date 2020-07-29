@@ -36,8 +36,6 @@ export default function SignInForm() {
     });
   }, [formState]);
 
-
-
   const loginInputChange = (event) => {
     event.persist();
     setFormState({ ...formState, [event.target.name]: event.target.value });
@@ -66,30 +64,38 @@ export default function SignInForm() {
   }
 
   const validate = (event) => {
-    yup.reach(SignUpFormSchema, event.target.name).validate(event.target.value)
-      .then(valid => {
+    yup
+      .reach(SignUpFormSchema, event.target.name)
+      .validate(event.target.value)
+      .then((valid) => {
         setErrors({
           ...errors,
-          [event.target.name]: ""
+          [event.target.name]: "",
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error.errors);
         setErrors({
           ...errors,
-          [event.target.name]: error.errors[0]
+          [event.target.name]: error.errors[0],
         });
       });
   };
 
   return (
+    <div className="formContainer">
     <form onSubmit={formSubmit} className="signUpForm">
       <h1>Sign Up</h1>
       <img
-        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png" alt=""
+        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png"
+        alt=""
         className="formPicIcon"
       />
-      {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
+      
+
+      {errors.username.length > 0 ? (
+        <p className="error">{errors.username}</p>
+      ) : null}
       {errors.password.length > 0 ? (
         <p className="error">{errors.password}</p>
       ) : null}
@@ -98,6 +104,7 @@ export default function SignInForm() {
       ) : null}
 
       <label htmlFor="name">
+        <i class="fa fa-user icon"></i>
         <input
           type="text"
           id="name"
@@ -109,6 +116,7 @@ export default function SignInForm() {
       </label>
 
       <label htmlFor="password">
+        <i class="fa fa-key icon"></i>
         <input
           type="password"
           id="password"
@@ -119,6 +127,7 @@ export default function SignInForm() {
         />
       </label>
       <label htmlFor="passwordConfirmation">
+        <i class="fa fa-key icon"></i>
         <input
           type="password"
           id="passwordConfirmation"
@@ -130,5 +139,6 @@ export default function SignInForm() {
       </label>
       <button disabled={loginButtonDisabled}>LOGIN</button>
     </form>
+    </div>
   );
 }

@@ -3,6 +3,7 @@ import PlantCard from './PlantCard'
 import NewPlantForm from './NewPlantForm'
 import { connect } from 'react-redux';
 import { getPlants } from '../actions/plantsActions'
+import EditPlantForm from './EditPlantForm'
 
 function PlantsPage(props) {
     
@@ -24,6 +25,8 @@ function PlantsPage(props) {
             onClick={addPlant}
             ></a>
             <div className={hideNewPlant ? 'hidden' : ''}>
+          
+            <EditPlantForm/>
             <NewPlantForm setHideNewPlant={setHideNewPlant}/>
             </div>
             {props.plants.map(plnt => {
