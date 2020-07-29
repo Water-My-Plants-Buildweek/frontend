@@ -3,6 +3,22 @@ body {
   font-family: "Kalam", cursive;
   text-align: center;
 
+  input {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 30px;
+    border-bottom: 1px solid black;
+    width: 250px;
+    font-family: "Kalam", cursive;
+    &:focus {
+        outline: none;
+    }
+}
+  button {
+    &:focus {
+      outline: none;
+    }
+}
 
   header {
     display: flex;
