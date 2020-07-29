@@ -44,7 +44,7 @@ function NewPlantForm(props) {
         <div className='new-plant-container'>
         <div className='new-plant'>
             <h2>Add a new plant</h2>
-            <form onSubmit={onSubmit} className='new-plant'>
+            <form onSubmit={onSubmit}>
 
                     <label htmlFor='nickname'>
                         <input
@@ -86,10 +86,11 @@ function NewPlantForm(props) {
                     </label>
                     <div className="add-cancel-buttons">
                         <button className='add-btn button'>Add</button>
+                        <a onClick={handleCancel} className='cancel-btn button'>Cancel</a>
                     </div>
 
                 </form>
-                <button onClick={handleCancel} className='cancel-btn button'>Cancel</button>
+                
             </div>
         </div>
     );

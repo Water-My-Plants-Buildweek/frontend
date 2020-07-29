@@ -153,9 +153,9 @@
   form {
     @include flex(column, center, center, no-wrap);
     line-height: 3rem;
-
+    
     .number-input {
-      width: 20px;
+      width: 25px;
     }
   }
 
@@ -182,17 +182,44 @@
   
     form {
         @include flex(column, center, center, no-wrap);
-        line-height: 3rem;
-  
+        label {
+          padding:5px;
+        }
         .number-input{
-          width: 20px;
+          width: 25px;
         }
     }
   }
 }
 
+.edit-plant-container{
+  .edit-plant {
+    background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
+    width: 300px;  
+    margin: 70px auto;
+    border-radius: 30px;
+    color: black;
+    opacity: 0.94;
+  
+  
+  h2{
+    text-align:center;
+  }
+  
+    form {
+        @include flex(column, center, center, no-wrap);
+        label {
+          padding:5px;
+        }
+        .number-input{
+          width: 25px;
+        }
+    }
+  }
+}
 
 .round-button{
+    border:none;
     background-color: white;
     background-image: linear-gradient(top, #f4f1ee, #fff);
     border-radius: 50%;
@@ -265,8 +292,8 @@
   &:after {
     content: "+";
     font-size: 2rem;
-    left: 29px;
-    top: 25px;
+    left: 19px;
+    top: 12px;
   }
   &:hover:after {
     color: lightblue;
@@ -277,8 +304,8 @@
 .delete {
   &:after {
     content: "✖";
-    left: 13px;
-    top: 5px;
+    left: 10px;
+    top: 4px;
   }
   &:hover:after {
     color: #eb2f2f;
@@ -289,11 +316,36 @@
 .edit {
   &:after {
     content: "✐";
-    left: 11px;
-    top: 4px;
+    left: 10px;
+    top: 3px;
   }
   &:hover:after {
     color: brown;
     text-shadow: 0px 0px 6px brown;
   }
+}
+
+.button {
+  font-family: 'Montserrat';
+  font-size: 1rem;
+  border: none;
+  background-color: white;
+  background-image: linear-gradient(top, #f4f1ee, #fff);
+  border-radius: 10px;
+  width: 90px;
+  padding: 20px 0;
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+  float:left;
+  margin: 25px;
+  position: relative;		
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+}
+
+.add-btn{
+  //custom styles
+}
+
+.cancel-btn{
+  //custom styles
 }
