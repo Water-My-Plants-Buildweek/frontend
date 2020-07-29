@@ -3,7 +3,7 @@ import PlantCard from './PlantCard';
 import { connect } from 'react-redux';
 import { addPlant } from '../actions/plantsActions';
 
-function NewPlantForm(props) {
+function EditPlantForm(props) {
 
     return (
 
@@ -16,4 +16,3 @@ function NewPlantForm(props) {
 }
 
 export default connect(null, { addPlant })(NewPlantForm);
-
