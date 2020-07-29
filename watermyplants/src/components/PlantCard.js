@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { deletePlant, editPlant, getPlants } from '../actions/plantsActions'
 import { connect } from 'react-redux';
+import EditPlantForm from './EditPlantForm'
 
 function PlantCard(props) {
 
@@ -11,6 +12,12 @@ function PlantCard(props) {
 
     const {plant} = props
     
+    const[editingPlant, setEditingPlant]=useState(false)
+    // form takes prop itll take plant data andplant data will be use to
+    const editChanger = ()=>{
+        setEditingPlant(!editingPlant)
+    }
+
     return (
 
         <div className='plant-card'>
@@ -21,12 +28,13 @@ function PlantCard(props) {
             <h3>Water</h3>
             <p>every{` ${plant.h2oFrequency} `}days</p>
             <div className='card-buttons'>
-            <button disabled={props.makingChanges} className='round-button edit'></button>
+            <button onClick={editChanger} disabled={props.makingChanges} className='round-button edit'></button>
             <button disabled={props.makingChanges} className='round-button droplet'></button>
             <button
             disabled={props.makingChanges}
             onClick={handleDelete}
             className='round-button delete'></button>
+            {editingPlant === true ? <EditPlantForm/> : null}
             </div>
             
 

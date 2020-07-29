@@ -18,6 +18,8 @@ function formattedPlantValues (plant) {
 function EditPlantForm(props) {
 
     const [plantFormValues, setPlantFormValues] = useState(initialPlantFormValues)
+    
+  
 
     const onSubmit = evt => {
         evt.preventDefault()
@@ -37,7 +39,7 @@ function EditPlantForm(props) {
 
     return (
         <div>
-        <div className='account-form-container'>
+        <div className='edit-form-container'>
             <h2>Edit a plant</h2>
             <form onSubmit={onSubmit} className='new-plant'>
 
@@ -79,7 +81,7 @@ function EditPlantForm(props) {
                 </label>
                 <div className="add-cancel-buttons">
                     <button className='add-btn button'>Add</button>
-                    <button className='cancel-btn button'>Cancel</button>
+                    <button className='cancel-btn button' >Cancel</button>
                 </div>
 
             </form>
