@@ -52,8 +52,8 @@ export default function AccountForm(props) {
         //   .catch(error => {
         //     console.log('Error happend with the post request', error);
         //   });
+        
         console.log(hiddenPhoneMessage)
-          setHiddenPhoneMessage(false)
           setTimeout(setHiddenPhoneMessage(false),5000)
           console.log(hiddenPhoneMessage)
       }
