@@ -44,14 +44,14 @@ export default function AccountForm(props) {
 
     const onPhoneSubmit = evt => {
         evt.preventDefault()
-        // axiosWithAuth()
-        //   .post('/api/auth/register', phone)
-        //   .then(response => {
-        //     console.log(response)
-        //   })
-        //   .catch(error => {
-        //     console.log('Error happend with the post request', error);
-        //   });
+        axiosWithAuth()
+          .post('/api/auth/user', phone)
+          .then(response => {
+            setPhone(response.data.phone)
+          })
+          .catch(error => {
+            console.log('Error happend with the post request', error);
+          });
         
         console.log(hiddenPhoneMessage)
           setTimeout(setHiddenPhoneMessage(false),5000)
