@@ -16,7 +16,7 @@ export default function LoginForm() {
   };
   const initialErrors = {
     username: "",
-    password: ""
+    password: "",
   };
 
   //passed in the variables inside of useState as an arguement
@@ -28,7 +28,7 @@ export default function LoginForm() {
   // all form input values are valid before the user is able to click submit
   useEffect(() => {
     loginFormSchema.isValid(formState).then((valid) => {
-      console.log('this is valid', valid);
+      console.log("this is valid", valid);
       setLoginButtonDisabled(!valid);
     });
   }, [formState]);
@@ -47,8 +47,6 @@ export default function LoginForm() {
     console.log('this is formstate', formState);
     login(formState, history)
   };
-
-
 
   const validate = (event) => {
     yup
@@ -70,19 +68,24 @@ export default function LoginForm() {
   };
 
   return (
+    <div className="formContainer">
     <form onSubmit={formSubmit} className="loginForm">
       <h1>Login</h1>
       <img
-        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png" alt=""
+        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png"
+        alt=""
         className="formPicIcon"
       />
 
-      {errors.username.length > 0 ? <p className="error">{errors.username}</p> : null}
+      {errors.username.length > 0 ? (
+        <p className="error">{errors.username}</p>
+      ) : null}
       {errors.password.length > 0 ? (
         <p className="error">{errors.password}</p>
       ) : null}
 
       <label htmlFor="name">
+        <i class="fa fa-user icon"></i>
         <input
           type="text"
           id="name"
@@ -94,6 +97,7 @@ export default function LoginForm() {
       </label>
 
       <label htmlFor="password">
+        <i class="fa fa-key icon"></i>
         <input
           type="password"
           id="password"
@@ -104,6 +108,10 @@ export default function LoginForm() {
         />
       </label>
       <button disabled={loginButtonDisabled}>LOGIN</button>
+      <a href="#" className="formLink">
+        Forgot Username/Password?
+      </a>
     </form>
+    </div>
   );
 }
