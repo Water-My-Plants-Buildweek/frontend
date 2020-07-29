@@ -38,5 +38,17 @@ body {
 }
 
 .hidden {
-  display:none
+  display:none;
 }
+
+.hidden-message-on{
+  visibility: hidden;
+  transition: visibility 1s;
+}
+
+.hidden-message-off{
+  visibility: visible;
+  transition: visibility 1s;
+}
+
+

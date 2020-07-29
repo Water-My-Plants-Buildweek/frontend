@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { axiosWithAuth } from '../utils/axiosWithAuth';
 import * as yup from 'yup'
 import passwordFormSchema from '../validation/passwordFormSchema'
 import phoneFormSchema from '../validation/phoneFormSchema'
@@ -27,6 +28,8 @@ const initialPasswordErrors = {
 //initializes that submit button as disabled
 const intitialDisabledPhone = true
 const intitialDisabledPassword = true
+const intitialPhoneMessage = true
+const initialPasswordMessage = true
 
 export default function AccountForm(props) {
     /////  STATE  /////
@@ -36,11 +39,23 @@ export default function AccountForm(props) {
     const [phoneError, setPhoneError] = useState(initialPhoneError)
     const [disabledPhone, setDisabledPhone] = useState(intitialDisabledPhone)
     const [disabledPassword, setDisabledPassword] = useState(intitialDisabledPassword)
-
+    const [hiddenPhoneMessage, setHiddenPhoneMessage] = useState(true)
+    const [hiddenPasswordMessage, setHiddenPasswordMessage] = useState(true)
 
     const onPhoneSubmit = evt => {
         evt.preventDefault()
-        setPhone(initialPhoneValue)
+        // axiosWithAuth()
+        //   .post('/api/auth/register', phone)
+        //   .then(response => {
+        //     console.log(response)
+        //   })
+        //   .catch(error => {
+        //     console.log('Error happend with the post request', error);
+        //   });
+        console.log(hiddenPhoneMessage)
+          setHiddenPhoneMessage(false)
+          setTimeout(setHiddenPhoneMessage(false),5000)
+          console.log(hiddenPhoneMessage)
       }
 
       const onPasswordSubmit = evt => {
@@ -78,7 +93,7 @@ export default function AccountForm(props) {
         const name = evt.target.name
         const value = evt.target.value
         
-        yup //passwor validation
+        yup //password validation
         .reach(passwordFormSchema, name)
         .validate(value)
         .then(valid => {
@@ -117,6 +132,7 @@ export default function AccountForm(props) {
         
         <div className='account-form-container'>
             <h2>Edit Account Information</h2>
+            <h3>Update Phone Number</h3>
             <form onSubmit={onPhoneSubmit} className = 'change-email'>
                 <label htmlFor='phone'>
                     <input
@@ -127,7 +143,12 @@ export default function AccountForm(props) {
                     />
                 </label>
                 <button className='submit-btn button' disabled={disabledPhone}>Update</button>
+                <div className={hiddenPhoneMessage ? 'hidden-message-on' : 'hidden-message-off'}>
+                    <p>Phone Number Updated</p>
+                </div>
+
             </form>
+            <h3>Update Passward</h3>
             <form onSubmit={onPasswordSubmit} className='change-password'>
                 <label htmlFor='password'>
                     <input
@@ -152,6 +173,9 @@ export default function AccountForm(props) {
                 </label>
 
                 <button className='submit-btn button' disabled={disabledPassword}>Update</button>
+                <div className={hiddenPasswordMessage ? 'hidden-message-on' : 'hidden-message-off'}>
+                    <p>Phone Number Updated</p>
+                </div>
             </form>
             <div className='errors'>
                 <div>{phoneError.phone}</div>
