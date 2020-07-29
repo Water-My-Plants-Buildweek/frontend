@@ -68,6 +68,7 @@ export default function LoginForm() {
   };
 
   return (
+    <div className="formContainer">
     <form onSubmit={formSubmit} className="loginForm">
       <h1>Login</h1>
       <img
@@ -111,5 +112,6 @@ export default function LoginForm() {
         Forgot Username/Password?
       </a>
     </form>
+    </div>
   );
 }

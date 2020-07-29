@@ -83,6 +83,7 @@ export default function SignInForm() {
   };
 
   return (
+    <div className="formContainer">
     <form onSubmit={formSubmit} className="signUpForm">
       <h1>Sign Up</h1>
       <img
@@ -138,5 +139,6 @@ export default function SignInForm() {
       </label>
       <button disabled={loginButtonDisabled}>LOGIN</button>
     </form>
+    </div>
   );
 }
