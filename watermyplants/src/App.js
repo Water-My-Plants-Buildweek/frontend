@@ -6,6 +6,7 @@ import Header from './components/Header';
 import PlantsPage from './components/PlantsPage';
 import { Route, Link, Switch } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
+import RedirectRoute from './components/RedirectRoute';
 import LogOutPage from './components/LogOutPage';
 import { connect } from 'react-redux';
 import { setLoggedIn, setLoggedOut } from './actions/accountActions';
@@ -26,6 +27,7 @@ const App = (props) => {
         <Header />
       </header>
       <Switch>
+        <RedirectRoute exact path='/' />
         <Route path="/login">
           <LoginForm />
         </Route>
