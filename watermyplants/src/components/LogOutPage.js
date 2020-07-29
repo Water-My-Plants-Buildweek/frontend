@@ -1,12 +1,15 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setLoggedOut } from '../actions/accountActions';
 
-const LogOutPage = () => {
+const LogOutPage = (props) => {
 
   const history = useHistory();
 
   useEffect(() => {
     localStorage.removeItem('token');
+    props.setLoggedOut();
     history.push('/login');
   }, []);
 
@@ -15,4 +18,4 @@ const LogOutPage = () => {
   );
 };
 
-export default LogOutPage;
+export default connect(null, { setLoggedOut })(LogOutPage);
