@@ -1,17 +1,19 @@
 .formContainer{
   font-family: "Kalam", cursive;
-  background-image: url("https://images.unsplash.com/photo-1462530348824-65844534c0ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80");
   background-repeat: no-repeat;
   background-size: cover;
-  position: fixed;
   min-width: 100%;
   min-width: 100%;
   background-position: center;
-  height: 100vh;
+  // height: 100vh;
+ padding: 5rem;
+//  background-image: url("https://images.unsplash.com/photo-1462530348824-65844534c0ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80");
+ background-repeat: no-repeat;
+ background-size: cover;
 
 .signUpForm {
   // background: rgba(67, 153, 153, 0.966);
-  background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
+  // background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
   padding: 40px;
   width: 45rem;
   height: 65rem;
@@ -57,14 +59,13 @@
 
 .loginForm {
   background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-  padding: 40px;
   width: 45rem;
   height: 60rem;
   display: flex;
   flex-direction: column;
   font-size: 1.8rem;
   align-items: center;
-  margin: 100px auto;
+  margin: 0 auto;
   border-radius: 30px;
   color: black;
   opacity: 0.94;

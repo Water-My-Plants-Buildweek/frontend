@@ -2,6 +2,9 @@ body {
 
   font-family: "Kalam", cursive;
   text-align: center;
+  .App{
+    min-height: 100vh;
+  }
 
   input {
     padding: 10px;
