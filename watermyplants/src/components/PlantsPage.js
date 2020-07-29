@@ -6,42 +6,40 @@ import { getPlants } from '../actions/plantsActions'
 import EditPlantForm from './EditPlantForm'
 
 function PlantsPage(props) {
-    
+
+    const [modalShow, setModalShow] = useState(false);
     const [hideNewPlant, setHideNewPlant] = useState(true)
 
     useEffect(() => {
         props.getPlants()
-    },[])
+    }, [])
 
     function addPlant() {
         setHideNewPlant(false)
     }
 
-    return (
-
-        <div className='plant-card-container'>
-            <a 
-            className='round-button add'
-            onClick={addPlant}
+    return (            
+            <div className='plant-card-container'>
+            <a
+                className='round-button add'
+                onClick={addPlant}
             ></a>
-            <div className={hideNewPlant ? 'hidden' : ''}>
-          
-            
-            <NewPlantForm setHideNewPlant={setHideNewPlant}/>
+                <div className={hideNewPlant ? 'hidden' : ''}>
+                    <NewPlantForm setHideNewPlant={setHideNewPlant} />
+                </div>
+                {props.plants.map(plnt => {
+                    return (
+
+                        <PlantCard
+                            key={plnt.id}
+                            plant={plnt}
+                            makingChanges={props.makingChanges}
+                        />
+                    )
+                })
+                }
+
             </div>
-            {props.plants.map(plnt => {
-                return (
-                    
-                    <PlantCard
-                        key={plnt.id}
-                        plant={plnt}
-                        makingChanges={props.makingChanges}
-                    />
-                )
-            })
-            }
-            
-        </div>
     )
 
 }
@@ -53,4 +51,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {getPlants})(PlantsPage);
+export default connect(mapStateToProps, { getPlants })(PlantsPage);
