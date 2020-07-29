@@ -15,7 +15,7 @@
   // background: rgba(67, 153, 153, 0.966);
   background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
   padding: 40px;
-  width: 470px;
+  width: 30rem;
   height: 590px;
   display: flex;
   flex-direction: column;
@@ -60,7 +60,7 @@
 .loginForm {
   background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
   padding: 40px;
-  width: 470px;
+  width: 30rem;
   height: 540px;
   display: flex;
   flex-direction: column;
@@ -203,6 +203,8 @@
 }
 
 .edit-plant-container{
+  // height: ;
+
   .edit-plant {
     background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
     width: 300px;  

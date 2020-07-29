@@ -1,94 +1,94 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { addPlant } from '../actions/plantsActions';
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { editPlant } from "../actions/plantsActions";
 
 const initialPlantFormValues = {
-    nickname: '',
-    species: '',
-    h2oFrequency: 1,
-    imageURL: ''
+  nickname: "",
+  species: "",
+  h2oFrequency: 1,
+  imageURL: "",
+};
 
-}
 
-function formattedPlantValues (plant) {
-    return {...plant, h2oFrequency:Number(plant.h2oFrequency)}
-    
-}
 
 function EditPlantForm(props) {
+  const [plantFormValues, setPlantFormValues] = useState(props.plant);
 
-    const [plantFormValues, setPlantFormValues] = useState(initialPlantFormValues)
-    
-  
+  function newPlantObj() {
+    return {
+      ...plantFormValues,
+      id: props.plant.id,
+    };
+  }
 
-    const onSubmit = evt => {
-        evt.preventDefault()
-        props.addPlant(plantFormValues)
-        setPlantFormValues(initialPlantFormValues)
-    }
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    props.editPlant(newPlantObj());
+    props.setEditingPlant(false)
+  };
+ 
+  function handleCancel(){
+      props.setEditingPlant(false)
+  }
+  const onChange = (evt) => {
+    const name = evt.target.name;
+    const value = evt.target.value;
 
-    const onChange = evt => {
-        const name = evt.target.name
-        const value = evt.target.value
+    setPlantFormValues({
+      ...plantFormValues,
+      [name]: value,
+    });
+  };
 
-        setPlantFormValues({
-            ...plantFormValues,
-            [name]: value
-        })
-    }
-
-    return (
-        <div className='edit-plant-container'>
-        <div className='edit-plant'>
-            <h2>Edit a plant</h2>
-            <form onSubmit={onSubmit} >
-
-                <label htmlFor='nickname'>
-                    <input
-                        placeholder="Nickname"
-                        value={plantFormValues.nickname}
-                        onChange={onChange}
-                        name='nickname'
-                    />
-                </label>
-                <label htmlFor='Species'>
-                    <input
-                        placeholder="Species"
-                        value={plantFormValues.species}
-                        onChange={onChange}
-                        name='species'
-                    />
-                </label>
-                <label htmlFor='watering frequency'>
-                    Water every {' '}
-                    <input
-                        className='number-input'
-                        type='number'
-                        min='1'
-                        value={plantFormValues.h2oFrequency}
-                        onChange={onChange}
-                        name='h2oFrequency'
-                    />
-                    {' '} day(s)
-                </label>
-                <label htmlFor='imageURL'>
-                    <input
-                        placeholder="Image URL"
-                        value={plantFormValues.imageURL}
-                        onChange={onChange}
-                        name='imageURL'
-                    />
-                </label>
-                <div className="add-cancel-buttons">
-                    <button className='add-btn button'>Add</button>
-                    <a className='cancel-btn button'>Cancel</a>
-                </div>
-
-            </form>
-        </div>
-        </div>
-    )
-
+  return (
+    <div className="edit-plant-container">
+      <div className="edit-plant">
+        <h2>Edit a plant</h2>
+        <form onSubmit={onSubmit}>
+          <label htmlFor="nickname">
+            <input
+              placeholder="Nickname"
+              value={plantFormValues.nickname}
+              onChange={onChange}
+              name="nickname"
+            />
+          </label>
+          <label htmlFor="Species">
+            <input
+              placeholder="Species"
+              value={plantFormValues.species}
+              onChange={onChange}
+              name="species"
+            />
+          </label>
+          <label htmlFor="watering frequency">
+            Water every{" "}
+            <input
+              className="number-input"
+              type="number"
+              min="1"
+              value={plantFormValues.h2oFrequency}
+              onChange={onChange}
+              name="h2oFrequency"
+            />{" "}
+            day(s)
+          </label>
+          <label htmlFor="imageURL">
+            <input
+              placeholder="Image URL"
+              value={plantFormValues.imageURL}
+              onChange={onChange}
+              name="imageURL"
+            />
+          </label>
+          <div className="add-cancel-buttons">
+            <button className="add-btn button">Edit</button>
+            <a className="cancel-btn button" onClick={handleCancel}>Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }
 
-export default connect(null, { addPlant })(EditPlantForm);
+export default connect(null, { editPlant })(EditPlantForm);
