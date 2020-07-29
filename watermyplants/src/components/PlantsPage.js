@@ -25,8 +25,9 @@ function PlantsPage(props) {
             onClick={addPlant}
             ></a>
             <div className={hideNewPlant ? 'hidden' : ''}>
-            <NewPlantForm/>
+          
             <EditPlantForm/>
+            <NewPlantForm setHideNewPlant={setHideNewPlant}/>
             </div>
             {props.plants.map(plnt => {
                 return (
@@ -34,6 +35,7 @@ function PlantsPage(props) {
                     <PlantCard
                         key={plnt.id}
                         plant={plnt}
+                        makingChanges={props.makingChanges}
                     />
                 )
             })
@@ -46,7 +48,8 @@ function PlantsPage(props) {
 
 const mapStateToProps = state => {
     return {
-        plants: state.plantsReducer.plants
+        plants: state.plantsReducer.plants,
+        makingChanges: state.plantsReducer.makingChanges
     }
 }
 
