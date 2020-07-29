@@ -26,7 +26,7 @@ function PlantsPage(props) {
             ></a>
             <div className={hideNewPlant ? 'hidden' : ''}>
           
-            <EditPlantForm/>
+            
             <NewPlantForm setHideNewPlant={setHideNewPlant}/>
             </div>
             {props.plants.map(plnt => {
