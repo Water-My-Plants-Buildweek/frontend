@@ -33,12 +33,14 @@ function PlantsPage(props) {
                     )
                 })
                 }
+
                 <a
                     className={hideNewPlant ? 'round-button add' : 'round-button add hidden'}
                     onClick={addPlant}
                 ></a>
                 <div className={hideNewPlant ? 'hidden' : ''}>
                     <NewPlantForm setHideNewPlant={setHideNewPlant} />
+
                 </div>
             </div>
         </div>

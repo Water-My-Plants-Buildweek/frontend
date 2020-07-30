@@ -19,7 +19,7 @@ function PlantCard(props) {
     };
 
     return (
-        <div className="plant-card">
+        <div className="card">
             {editingPlant === false ? (
                 <>
 
