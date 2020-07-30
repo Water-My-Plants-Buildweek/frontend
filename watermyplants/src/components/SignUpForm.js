@@ -107,7 +107,7 @@ export default function SignInForm() {
           <p className="error">{errors.passwordConfirmation}</p>
         ) : null}
         {loginExists === false ? null : (
-          <p className="error">Username is already Taken. Try Again!</p>
+          <p className="error">Username is already taken. Try Again!</p>
         )}
 
         <label htmlFor="name">
@@ -144,7 +144,7 @@ export default function SignInForm() {
             value={formState.passwordConfirmation}
           />
         </label>
-        <button disabled={loginButtonDisabled}>SIGN UP</button>
+        <button className='button' disabled={loginButtonDisabled}>SIGN UP</button>
       </form>
     </div>
   );
