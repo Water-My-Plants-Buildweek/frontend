@@ -18,15 +18,10 @@ function PlantsPage(props) {
         setHideNewPlant(false)
     }
 
-    return (            
+    return (
+        <div>
+            <h1>My Plant Family</h1>
             <div className='plant-card-container'>
-            <a
-                className='round-button add'
-                onClick={addPlant}
-            ></a>
-                <div className={hideNewPlant ? 'hidden' : ''}>
-                    <NewPlantForm setHideNewPlant={setHideNewPlant} />
-                </div>
                 {props.plants.map(plnt => {
                     return (
 
@@ -39,7 +34,17 @@ function PlantsPage(props) {
                 })
                 }
 
+                <a
+                    className={hideNewPlant ? 'round-button add' : 'round-button add hidden'}
+                    onClick={addPlant}
+                ></a>
+                <div className={hideNewPlant ? 'hidden' : ''}>
+                    <NewPlantForm setHideNewPlant={setHideNewPlant} />
+
+                </div>
             </div>
+        </div>
+
     )
 
 }

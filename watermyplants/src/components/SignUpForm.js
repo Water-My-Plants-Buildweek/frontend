@@ -137,7 +137,7 @@ export default function SignInForm() {
           value={formState.passwordConfirmation}
         />
       </label>
-      <button disabled={loginButtonDisabled}>LOGIN</button>
+      <button disabled={loginButtonDisabled}>SIGN UP</button>
     </form>
     </div>
   );

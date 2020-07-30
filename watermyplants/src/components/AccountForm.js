@@ -7,7 +7,8 @@ import phoneFormSchema from '../validation/phoneFormSchema'
 //setting up default form values so that fields are empty
 
 const initialPhoneValue = {
-    phone: ""}
+    phone: ""
+}
 
 const initialPasswordValues = {
     password: '',
@@ -17,7 +18,8 @@ const initialPasswordValues = {
 //setting up default error values so that no errors appear
 
 const initialPhoneError = {
-    phone: ""}
+    phone: ""
+}
 
 const initialPasswordErrors = {
     password: '',
@@ -45,95 +47,94 @@ export default function AccountForm(props) {
     const onPhoneSubmit = evt => {
         evt.preventDefault()
         axiosWithAuth()
-          .post('/api/auth/user', phone)
-          .then(response => {
-            setPhone(response.data.phone)
-          })
-          .catch(error => {
-            console.log('Error happend with the post request', error);
-          });
-        
-        console.log(hiddenPhoneMessage)
-          setTimeout(setHiddenPhoneMessage(false),5000)
-          console.log(hiddenPhoneMessage)
-      }
+            .post('/api/auth/user', phone)
+            .then(response => {
+                setPhone(response.data.phone)
+            })
+            .catch(error => {
+                console.log('Error happend with the post request', error);
+            });
+        setTimeout(setHiddenPhoneMessage(false), 5000)
+    }
 
-      const onPasswordSubmit = evt => {
+    const onPasswordSubmit = evt => {
         evt.preventDefault()
         setPasswordValues(initialPasswordValues)
-      }
+        setTimeout(setHiddenPasswordMessage(false), 5000)
+    }
 
     const onPhoneChange = evt => {
         const name = evt.target.name
         const value = evt.target.value
-        
-        yup //phone validation
-        .reach(phoneFormSchema, name)
-        .validate(value)
-        .then(valid => {
-            setPhoneError({
-                ...phoneError,
-                [name]: "",
-            })
-        })
-        .catch(err => {
-            setPhoneError({
-                ...phoneError,
-                [name]: err.errors[0],
-            })
-        })
 
-    //state
-    setPhone({...phone,
-        [name]: value
-    })
+        yup //phone validation
+            .reach(phoneFormSchema, name)
+            .validate(value)
+            .then(valid => {
+                setPhoneError({
+                    ...phoneError,
+                    [name]: "",
+                })
+            })
+            .catch(err => {
+                setPhoneError({
+                    ...phoneError,
+                    [name]: err.errors[0],
+                })
+            })
+
+        //state
+        setPhone({
+            ...phone,
+            [name]: value
+        })
     }
 
     const onPasswordChange = evt => {
         const name = evt.target.name
         const value = evt.target.value
-        
-        yup //password validation
-        .reach(passwordFormSchema, name)
-        .validate(value)
-        .then(valid => {
-            setPasswordErrors({
-                ...passwordErrors,
-                [name]: "",
-            })
-        })
-        .catch(err => {
-            setPasswordErrors({
-                ...passwordErrors,
-                [name]: err.errors[0],
-            })
 
+        yup //password validation
+            .reach(passwordFormSchema, name)
+            .validate(value)
+            .then(valid => {
+                setPasswordErrors({
+                    ...passwordErrors,
+                    [name]: "",
+                })
+            })
+            .catch(err => {
+                setPasswordErrors({
+                    ...passwordErrors,
+                    [name]: err.errors[0],
+                })
+
+            })
+        setPasswordValues({
+            ...passwordValues,
+            [name]: value
         })
-    setPasswordValues({
-        ...passwordValues,
-        [name]: value
-    })
     }
 
     //enables submit button once validation is met
     useEffect(() => {
-       phoneFormSchema.isValid(phone).then(valid => {
-          setDisabledPhone(!valid)
+        phoneFormSchema.isValid(phone).then(valid => {
+            setDisabledPhone(!valid)
         })
-      }, [phone])
+    }, [phone])
 
     useEffect(() => {
         passwordFormSchema.isValid(passwordValues).then(valid => {
-          setDisabledPassword(!valid)
+            setDisabledPassword(!valid)
         })
-      }, [passwordValues])
+    }, [passwordValues])
 
     return (
-        
-        <div className='account-form-container'>
+
+        <div className='card account'>
             <h2>Edit Account Information</h2>
             <h3>Update Phone Number</h3>
-            <form onSubmit={onPhoneSubmit} className = 'change-email'>
+            <form onSubmit={onPhoneSubmit} className='change-email'>
                 <label htmlFor='phone'>
                     <input
                         placeholder="Enter phone number"
@@ -142,13 +143,16 @@ export default function AccountForm(props) {
                         name='phone'
                     />
                 </label>
-                <button className='submit-btn button' disabled={disabledPhone}>Update</button>
-                <div className={hiddenPhoneMessage ? 'hidden-message-on' : 'hidden-message-off'}>
-                    <p>Phone Number Updated</p>
+                <button className='button' disabled={disabledPhone}>Update</button>
+                <div className='messages'>
+                    <div className={hiddenPhoneMessage ? 'hidden-message-on' : 'hidden-message-off'}>
+                        <p>Phone Number Updated</p>
+                    </div>
+                    <p>{phoneError.phone}</p>
                 </div>
 
             </form>
-            <h3>Update Passward</h3>
+            <h3>Update Password</h3>
             <form onSubmit={onPasswordSubmit} className='change-password'>
                 <label htmlFor='password'>
                     <input
@@ -172,15 +176,15 @@ export default function AccountForm(props) {
                     />
                 </label>
 
-                <button className='submit-btn button' disabled={disabledPassword}>Update</button>
-                <div className={hiddenPasswordMessage ? 'hidden-message-on' : 'hidden-message-off'}>
-                    <p>Phone Number Updated</p>
-                </div>
+                <button className='button' disabled={disabledPassword}>Update</button>
+
             </form>
-            <div className='errors'>
-                <div>{phoneError.phone}</div>
-                <div>{passwordErrors.password}</div>
-                <div>{passwordErrors.passwordConfirm}</div>
+            <div className='messages'>
+                <p>{passwordErrors.password}</p>
+                <p>{passwordErrors.passwordConfirm}</p>
+                <div className={hiddenPasswordMessage ? 'hidden-message-on' : 'hidden-message-off'}>
+                    <p>Password Updated</p>
+                </div>
             </div>
         </div>
 
