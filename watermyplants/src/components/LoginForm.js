@@ -111,7 +111,7 @@ export default function LoginForm() {
             value={formState.password}
           />
         </label>
-        <button disabled={loginButtonDisabled}>LOGIN</button>
+        <button className='button' disabled={loginButtonDisabled}>LOGIN</button>
         <a href="#" className="formLink">
           Forgot Username/Password?
         </a>
