@@ -5,3 +5,11 @@
   align-items: $align;
   flex-wrap: $wrap;
 }
+
+@mixin for-tablet-landscape-down {
+  @media (max-width: 1200px) { @content; }
+}
+
+@mixin for-phone-down {
+  @media (max-width: 600px) { @content; }
+}

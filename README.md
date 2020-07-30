@@ -25,15 +25,19 @@ This project uses npm. Use `npm install` in the /watermyplants directory. More i
 
 ### Project Leads
 ***Taja House*** | [Github](https://github.com/tajahouse)
+
 ***Tiffany Arellano*** | [Github](https://github.com/yirano)
 
 ### Backend Developers
 ***Andrew Sitzes*** | [Github](https://github.com/Drewcifer88)
+
 ***Liam Cox*** | [Github](https://github.com/liamcox)
 
 ### Frontend Developers
 ***Alex Williams*** | [Github](https://github.com/ajwpdx)
+
 ***Drew Ross*** | [Github](https://github.com/drew-ross)
+
 ***Lynda Santiago*** | [Github](https://github.com/lyntechi)
 
 ### Marketing Page
