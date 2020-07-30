@@ -148,7 +148,7 @@ export default function AccountForm(props) {
                 </div>
 
             </form>
-            <h3>Update Passward</h3>
+            <h3>Update Password</h3>
             <form onSubmit={onPasswordSubmit} className='change-password'>
                 <label htmlFor='password'>
                     <input
