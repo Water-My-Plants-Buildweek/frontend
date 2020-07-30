@@ -41,9 +41,9 @@ function EditPlantForm(props) {
   };
 
   return (
-    <div className="edit-plant-container">
+  <div className="edit-plant-container">
       <div className="edit-plant">
-        <h2>Edit</h2>
+        <h2>Edit plant</h2>
         <form onSubmit={onSubmit}>
           <label htmlFor="nickname">
             <input
@@ -87,7 +87,7 @@ function EditPlantForm(props) {
           </div>
         </form>
       </div>
-    </div>
+      </div>
   );
 }
 

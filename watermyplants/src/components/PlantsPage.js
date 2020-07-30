@@ -19,26 +19,30 @@ function PlantsPage(props) {
     }
 
     return (
-        <div className='plant-card-container'>
-            {props.plants.map(plnt => {
-                return (
+        <div>
+            <h1>My Plant Family</h1>
+            <div className='plant-card-container'>
+                {props.plants.map(plnt => {
+                    return (
 
-                    <PlantCard
-                        key={plnt.id}
-                        plant={plnt}
-                        makingChanges={props.makingChanges}
-                    />
-                )
-            })
-            }
-            <a
-                className={hideNewPlant ? 'round-button add' : 'round-button add hidden'}
-                onClick={addPlant}
-            ></a>
-            <div className={hideNewPlant ? 'hidden' : ''}>
-                <NewPlantForm setHideNewPlant={setHideNewPlant} />
+                        <PlantCard
+                            key={plnt.id}
+                            plant={plnt}
+                            makingChanges={props.makingChanges}
+                        />
+                    )
+                })
+                }
+                <a
+                    className={hideNewPlant ? 'round-button add' : 'round-button add hidden'}
+                    onClick={addPlant}
+                ></a>
+                <div className={hideNewPlant ? 'hidden' : ''}>
+                    <NewPlantForm setHideNewPlant={setHideNewPlant} />
+                </div>
             </div>
         </div>
+
     )
 
 }

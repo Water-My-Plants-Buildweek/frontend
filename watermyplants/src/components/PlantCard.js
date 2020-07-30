@@ -27,11 +27,11 @@ function PlantCard(props) {
                         <div className='plant-title'>
                         <h2>{plant.nickname}</h2>
                         <h3>{plant.species}</h3>
+                        <p>Water every{plant.h2oFrequency === 1 ? ` day` : ` ${plant.h2oFrequency} days`}</p>
                         </div>
                         
                     </div>
-                    {/* <img src={plant.imageURL} alt="plant image" /> */}
-                    <h3>Water every{plant.h2oFrequency === 1 ? ` day` : ` ${plant.h2oFrequency} days`}</h3>
+                    
             
                     <div className="card-buttons">
                         <button

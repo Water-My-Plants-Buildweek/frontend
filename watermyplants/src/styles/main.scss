@@ -29,6 +29,7 @@
   }
 
   input {
+    margin: 1rem;
     width: 30rem;
   }
 
@@ -72,6 +73,7 @@
 
   input {
     width: 30rem;
+    margin: 1rem;
   }
 
   button {
@@ -90,35 +92,35 @@
 
 .plant-card-container {
   @include flex(row, center, center, wrap);
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
 }
 
 .plant-card {
   background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-  width: 300px;
-  margin: 2%;
-  border-radius: 30px;
+  width: 30rem;
+  margin: 2rem;
+  border-radius: 3rem;
   color: black;
   opacity: 0.94;
   @include flex(column, center, center, no-wrap);
 
   .plant-image{
-    width: 250px;
-    height: 250px;
-    margin-top: 25px;
-    background-size: 250px;
+    width: 25rem;
+    height: 25rem;
+    margin-top: 2.5rem;
+    background-size: 25rem;
     background-position: center;
-    border-radius: 20px;
+    border-radius: 2rem;
 
   }
   .plant-title{
-    background: rgba(10, 10, 10, 0.3);
+    background: rgba(26, 60, 64, 0.3);
     width: 80%;
-    margin: 50px auto 0;
-    border-radius: 10px;
-    color:white;
-    padding: 10px;
+    margin: 5rem auto 0;
+    border-radius: 1rem;
+    color: $tea-green;
+    padding: 1rem;
   }
   img {
     width: 70%;
@@ -140,37 +142,34 @@
 
   h2, h3{
     text-align:center;
+    padding: 1.5rem;
+  }
+
+  p{
+    padding-bottom: 1rem;
   }
 
   form {
     @include flex(column, center, center, no-wrap);
-    line-height: 3rem;
     
     .number-input {
       width: 25px;
     }
   }
 
-  .error {
-    div {
-      color: red;
-    }
-  }
+  
 }
 
-.new-plant-container{
-  .new-plant {
+.new-plant {
     background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-    width: 300px;  
-    margin: 5%;
-    border-radius: 30px;
-    color: black;
+    width: 30rem;  
+    margin: 2rem;
+    border-radius: 3rem;
     opacity: 0.94;
-  
   
   h2{
     text-align:center;
-    padding: 2rem;
+    padding: 1.5rem;
   }
   
     form {
@@ -184,21 +183,18 @@
           border-radius: 10px;
         }
     }
-  }
 }
 
-.edit-plant-container{
-
-  .edit-plant {
+.edit-plant {
     background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
     width: 30rem;  
     border-radius: 3rem;
-    color: black;
     opacity: 0.94;
   
   
   h2{
     text-align:center;
+    padding: 1.5rem;
   }
   
     form {
@@ -212,8 +208,9 @@
           font-weight: bold;
         }
     }
-  }
 }
+
+
 
 .round-button{
     border:none;
@@ -222,10 +219,10 @@
     border-radius: 50%;
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
     float:left;
-    height: 50px;
-    margin: 10px;
+    height: 5rem;
+    margin: 2rem 1rem;
     position: relative;
-    width: 50px;			
+    width: 5rem;			
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
 
@@ -286,7 +283,7 @@
 .add {
   height: 7rem;
   width: 7rem;
-  margin: 7rem;
+  margin: 5rem 17rem 5rem 10rem;
   &:after {
     content: "+";
     font-family: $font-2;
@@ -331,11 +328,10 @@
   background-image: linear-gradient(top, #f4f1ee, #fff);
   border-radius: 10px;
   width: 90px;
-  padding: 20px 0;
+  padding: 1.5rem 0;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
   float:left;
-  margin: 25px;
-  position: relative;		
+  margin: 25px;	
   -webkit-transition: all .1s linear;
   transition: all .1s linear;
 }
