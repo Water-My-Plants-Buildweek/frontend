@@ -1,32 +1,32 @@
 body {
-
   font-family: $font-1, cursive;
   text-align: center;
-
+  .App {
+    min-height: 100vh;
+  }
   h1 {
     font-family: $font-2;
     font-size: 3.5rem;
-    color:$ming
+    color:$ming;
   }
-
   h2 {
     font-family: $font-2;
     font-size: 2.5rem;
     color: $tea-green
   }
-
-  h3, h4 {
+  h3,
+  h4 {
     font-size: 2.2rem;
     color: $tea-green
   }
-
-  p, label, button, a {
+  p,
+  label,
+  button,
+  a {
     font-size: 1.5rem;
     font-family: $font-2;
     color: $tea-green
   }
-
-
   header {
     display: flex;
     width: 100%;
@@ -36,32 +36,49 @@ body {
     align-items: center;
     font-family: $header-font;
     color: $tea-green;
-
+    @include for-phone-down {
+      display: flex;
+      flex-direction: column;
+      height: 15rem;
+    }
     h1 {
       margin: 4.5rem;
       font-size: 5rem;
       font-family: $font-1;
+      width: 50%;
       color: $tea-green;
+      @include for-tablet-landscape-down {
+        font-size: 3rem;
+        margin: 0;
+      }
+      @include for-phone-down {
+        width: 100%;
+      }
     }
-
     nav {
       display: flex;
       justify-content: flex-end;
       width: 50%;
       margin-right: 3rem;
-
+      @include for-phone-down {
+        margin: 0;
+        justify-content: center;
+        width: 80%;
+      }
       .link {
         color: $tea-green;
         margin: 3%;
         text-decoration: none;
         font-size: 3rem;
         font-family: $font-1;
+        @include for-tablet-landscape-down {
+          font-size: 2rem;
+          width: 50%;
+        }
       }
     }
   }
 }
-
-
 input {
   padding: 1rem;
   margin: 0.2rem;
@@ -70,22 +87,17 @@ input {
   width: 25rem;
   font-family: $font-1, cursive;
   &:focus {
-      outline: none;
+    outline: none;
   }
 }
-
-
 .hidden {
-  display:none;
+  display: none;
 }
-
-.hidden-message-on{
+.hidden-message-on {
   visibility: hidden;
   transition: visibility 1s;
 }
-
-.hidden-message-off{
+.hidden-message-off {
   visibility: visible;
   transition: visibility 1s;
 }
-
