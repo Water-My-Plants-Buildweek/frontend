@@ -1,27 +1,25 @@
 .formContainer{
-  font-family: "Kalam", cursive;
   background-image: url("https://images.unsplash.com/photo-1462530348824-65844534c0ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80");
   background-repeat: no-repeat;
   background-size: cover;
-  position: fixed;
   min-width: 100%;
   min-width: 100%;
   background-position: center;
-  height: 100vh;
+  height: 85vh;
+  padding: 15rem;
 
 .signUpForm {
   // background: rgba(67, 153, 153, 0.966);
   background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-  padding: 40px;
+  padding: 4rem;
   width: 45rem;
-  height: 65rem;
   display: flex;
   flex-direction: column;
   font-size: 1.8rem;
   align-items: center;
-  margin: 100px auto;
+  margin: 0 auto;
 
-  border-radius: 30px;
+  border-radius: 3rem;
   color: black;
   opacity: 0.94;
 
@@ -30,26 +28,22 @@
     margin: 10px auto;
   }
 
-
   input {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 30px;
-    border-bottom: 1px solid black;
-    width: 300px;
-    font-family: "Kalam", cursive;
+    margin: 1rem;
+    width: 30rem;
   }
+
   button {
-    padding: 20px;
-    width: 300px;
+    padding: 2rem;
+    width: 30rem;
     align-self: center;
     background: rgba(74, 145, 145, 0.829);
     color: black;
-    margin-top: 25px;
-    font-family: "Kalam", cursive;
+    margin: 2.5rem;
+    font-family: $font-1, cursive;
   }
   h1 {
-    padding: 10px;
+    padding: 1rem;
   }
 }
 }
@@ -57,16 +51,14 @@
 
 .loginForm {
   background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-  padding: 40px;
+  padding: 4rem;
   width: 45rem;
-  height: 60rem;
   display: flex;
   flex-direction: column;
   font-size: 1.8rem;
+  margin: 0 auto;
   align-items: center;
-  margin: 100px auto;
-  border-radius: 30px;
-  color: black;
+  border-radius: 3rem;
   opacity: 0.94;
 
   .formPicIcon {
@@ -80,13 +72,10 @@
   }
 
   input {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 30px;
-    border-bottom: 1px solid black;
-    width: 300px;
-    font-family: "Kalam", cursive;
+    width: 30rem;
+    margin: 1rem;
   }
+
   button {
     padding: 20px;
     width: 300px;
@@ -94,66 +83,45 @@
     background: rgba(74, 145, 145, 0.829);
     color: black;
     margin-top: 25px;
-    font-family: "Kalam", cursive;
   }
+
   h1 {
     padding: 10px;
   }
 }
 
 .plant-card-container {
-  @include flex(row, flex-start, center, wrap);
-  width: 70%;
+  @include flex(row, center, center, wrap);
+  width: 90%;
   margin: 0 auto;
- background-repeat: no-repeat;
- position: fixed;
- min-width: 100%;
- min-width: 100%;
- height: 100vh;
- background: white;
- 
 }
-.edit-form-container{
-  width: 100%;
-  padding: 30px;
-  h2{
-    font-size:2rem;
-  }
-  input{
-    padding: 5px;
-    margin: 3px;
-  }
-}
+
 .plant-card {
   background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-  width: 300px;
-  margin: 2%;
-  border-radius: 30px;
+  width: 30rem;
+  margin: 2rem;
+  border-radius: 3rem;
   color: black;
   opacity: 0.94;
   @include flex(column, center, center, no-wrap);
 
   .plant-image{
-    width: 250px;
-    height: 250px;
-    margin-top: 25px;
-    background-size: 250px;
+    width: 25rem;
+    height: 25rem;
+    margin-top: 2.5rem;
+    background-size: 25rem;
     background-position: center;
-    border-radius: 20px;
+    border-radius: 2rem;
 
   }
   .plant-title{
-    background: rgba(10, 10, 10, 0.3);
+    background: rgba(26, 60, 64, 0.3);
     width: 80%;
-    margin: 50px auto 0;
-    border-radius: 10px;
-    color:white;
-    padding: 10px;
+    margin: 5rem auto 0;
+    border-radius: 1rem;
+    color: $tea-green;
+    padding: 1rem;
   }
-  h2 {
-    font-family: Montserrat;
-  }
-
   img {
     width: 70%;
   }
@@ -166,44 +134,42 @@
 
 .account-form-container {
   background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-  width: 300px;
-  margin: 5%;
-  border-radius: 30px;
+  width: 30rem;
+  margin: 5% auto;
+  border-radius: 3rem;
   color: black;
   opacity: 0.94;
 
   h2, h3{
     text-align:center;
+    padding: 1.5rem;
+  }
+
+  p{
+    padding-bottom: 1rem;
   }
 
   form {
     @include flex(column, center, center, no-wrap);
-    line-height: 3rem;
     
     .number-input {
       width: 25px;
     }
   }
 
-  .error {
-    div {
-      color: red;
-    }
-  }
+  
 }
 
-.new-plant-container{
-  .new-plant {
+.new-plant {
     background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-    width: 300px;  
-    margin: 5%;
-    border-radius: 30px;
-    color: black;
+    width: 30rem;  
+    margin: 2rem;
+    border-radius: 3rem;
     opacity: 0.94;
-  
   
   h2{
     text-align:center;
+    padding: 1.5rem;
   }
   
     form {
@@ -212,28 +178,23 @@
           padding:5px;
         }
         .number-input{
-          font-family: Montserrat;
-          width: 25px;
+          font-weight: bold;
+          width: 5rem;
           border-radius: 10px;
         }
     }
-  }
 }
 
-.edit-plant-container{
-  // height: ;
-
-  .edit-plant {
+.edit-plant {
     background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-    width: 300px;  
-    margin: 70px auto;
-    border-radius: 30px;
-    color: black;
+    width: 30rem;  
+    border-radius: 3rem;
     opacity: 0.94;
   
   
   h2{
     text-align:center;
+    padding: 1.5rem;
   }
   
     form {
@@ -242,12 +203,14 @@
           padding:5px;
         }
         .number-input{
-          width: 25px;
+          width: 5rem;
           border-radius: 10px;
+          font-weight: bold;
         }
     }
-  }
 }
+
+
 
 .round-button{
     border:none;
@@ -256,10 +219,10 @@
     border-radius: 50%;
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
     float:left;
-    height: 50px;
-    margin: 10px;
+    height: 5rem;
+    margin: 2rem 1rem;
     position: relative;
-    width: 50px;			
+    width: 5rem;			
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
 
@@ -318,17 +281,19 @@
 }
 
 .add {
-  height: 70px;
-  width: 70px;
+  height: 7rem;
+  width: 7rem;
+  margin: 5rem 17rem 5rem 10rem;
   &:after {
     content: "+";
-    font-size: 2rem;
+    font-family: $font-2;
+    font-size: 4rem;
     left: 19px;
     top: 12px;
   }
   &:hover:after {
-    color: lightblue;
-    text-shadow: 0px 0px 6px green;
+    color: lightgray;
+    text-shadow: 0px 0px 6px gray;
   }
 }
 
@@ -357,18 +322,16 @@
 }
 
 .button {
-  font-family: 'Montserrat';
-  font-size: 1rem;
+  font-family: $font-2;
   border: none;
   background-color: white;
   background-image: linear-gradient(top, #f4f1ee, #fff);
   border-radius: 10px;
   width: 90px;
-  padding: 20px 0;
+  padding: 1.5rem 0;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
   float:left;
-  margin: 25px;
-  position: relative;		
+  margin: 25px;	
   -webkit-transition: all .1s linear;
   transition: all .1s linear;
 }
