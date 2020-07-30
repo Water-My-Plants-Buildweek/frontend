@@ -41,9 +41,8 @@ function EditPlantForm(props) {
   };
 
   return (
-    <div className="edit-plant-container">
-      <div className="edit-plant">
-        <h2>Edit a plant</h2>
+      <div className="card edit">
+        <h2>Edit plant</h2>
         <form onSubmit={onSubmit}>
           <label htmlFor="nickname">
             <input
@@ -82,12 +81,11 @@ function EditPlantForm(props) {
             />
           </label>
           <div className="add-cancel-buttons">
-            <button className="add-btn button">Edit</button>
+            <button className="add-btn button">Update</button>
             <a className="cancel-btn button" onClick={handleCancel}>Cancel</a>
           </div>
         </form>
       </div>
-    </div>
   );
 }
 

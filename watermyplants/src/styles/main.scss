@@ -1,233 +1,147 @@
-
-  
 .formContainer{
-  font-family: "Kalam", cursive;
   background-image: url("https://images.unsplash.com/photo-1462530348824-65844534c0ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80");
   background-repeat: no-repeat;
   background-size: cover;
-  position: fixed;
   min-width: 100%;
   min-width: 100%;
   background-position: center;
-  height: 100vh;
+  height: 85vh;
+  padding-top: 15rem;
 
 .signUpForm {
-  // background: rgba(67, 153, 153, 0.966);
   background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-  padding: 40px;
-  width: 30rem;
-  height: 590px;
+  padding: 4rem;
+  max-width: 45rem;
+  min-width: 30rem;
   display: flex;
   flex-direction: column;
   font-size: 1.8rem;
   align-items: center;
-  margin: 100px auto;
-
-  border-radius: 30px;
-  color: black;
-  opacity: 0.94;
-
-  .formPicIcon {
-    width: 100px;
-    margin: 10px auto;
-  }
-
-
-  input {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 30px;
-    border-bottom: 1px solid black;
-    width: 300px;
-    font-family: "Kalam", cursive;
-  }
-  button {
-    padding: 20px;
-    width: 300px;
-    align-self: center;
-    background: rgba(74, 145, 145, 0.829);
-    color: black;
-    margin-top: 25px;
-    font-family: "Kalam", cursive;
-  }
-  h1 {
-    padding: 10px;
-  }
-}
-}
-
-
-.loginForm {
-  background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-  padding: 40px;
-  width: 30rem;
-  height: 540px;
-  display: flex;
-  flex-direction: column;
-  font-size: 1.8rem;
-  align-items: center;
-  margin: 100px auto;
-  border-radius: 30px;
-  color: black;
-  opacity: 0.94;
-
-  .formPicIcon {
-    width: 100px;
-    margin: 10px auto;
-  }
-  .formLink {
-    text-decoration: none;
-    margin: 30px;
-    color: rgb(27, 33, 39);
-  }
-
-  input {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 30px;
-    border-bottom: 1px solid black;
-    width: 300px;
-    font-family: "Kalam", cursive;
-  }
-  button {
-    padding: 20px;
-    width: 300px;
-    align-self: center;
-    background: rgba(74, 145, 145, 0.829);
-    color: black;
-    margin-top: 25px;
-    font-family: "Kalam", cursive;
-  }
-  h1 {
-    padding: 10px;
-  }
-}
-
-.plant-card-container {
-  @include flex(row, flex-start, center, wrap);
-  width: 70%;
   margin: 0 auto;
- background-repeat: no-repeat;
- position: fixed;
- min-width: 100%;
- min-width: 100%;
- height: 100vh;
- background: white;
- 
-}
-.edit-form-container{
-  width: 100%;
-  padding: 30px;
-  h2{
-    font-size:2rem;
+
+
+  border-radius: 3rem;
+  color: black;
+  opacity: 0.94;
+
+  .formPicIcon {
+    width: 10rem;
+    margin: 1rem auto;
   }
-  input{
-    padding: 5px;
-    margin: 3px;
+
+  input {
+    margin: 1rem;
+    width: 30rem;
+  }
+
+  button {
+    padding: 2rem;
+    width: 30rem;
+    align-self: center;
+    background: rgba(74, 145, 145, 0.829);
+    color: black;
+    margin: 2.5rem;
+    font-family: $font-1, cursive;
+  }
+  h1 {
+    padding: 1rem;
   }
 }
-.plant-card {
-  background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-  width: 300px;
-  margin: 70px auto;
-  border-radius: 30px;
+}
+
+.plants-page{
+  background-color: $tea-green;
+  border-top: 0.5rem solid $elephant;
+  padding-bottom: 30rem;
+
+  h1 {
+    padding: 4rem;
+  }
+  .plant-card-container {
+    @include flex(row, center, center, wrap);
+    width: 90%;
+    margin: 0 auto;
+    
+  }
+}
+
+.card{
+  background-color: $ming;
+  width: 30rem;
+  margin: 2rem;
+  border-radius: 3rem;
   color: black;
   opacity: 0.94;
   @include flex(column, center, center, no-wrap);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22), inset 0px 4px 1px 1px rgb(73, 129, 126), inset 0px -3px 1px 1px rgba(61, 104, 102, 1);
 
   h2 {
-    margin: 10px;
+    padding: 3rem;
   }
 
-  img {
-    width: 70%;
+  p{
+    padding: 0.5rem;
+  }
+
+  .plant-image{
+    width: 25rem;
+    height: 25rem;
+    margin-top: 2.5rem;
+    background-size: 25rem;
+    background-position: center;
+    border-radius: 2rem;
+    
+    .plant-title{
+      background: rgba(26, 60, 64, 0.5);
+      width: 80%;
+      margin: 5rem auto 0;
+      border-radius: 1rem;
+      color: $tea-green;
+      padding: 1rem;
+
+      h2, h3, p{
+        padding: 0.5rem;
+      }
+    }
+
   }
 
   .card-buttons {
     @include flex(row, center, center, no-wrap);
-  }
-}
-
-.account-form-container {
-  background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-  width: 300px;
-  margin: 70px auto;
-  border-radius: 30px;
-  color: black;
-  opacity: 0.94;
-
-  h2, h3{
-    text-align:center;
+    margin-bottom: 2.5rem;
   }
 
   form {
     @include flex(column, center, center, no-wrap);
-    line-height: 3rem;
     
-    .number-input {
-      width: 25px;
+    label {
+      padding:5px;
+    }
+    .number-input{
+      font-weight: bold;
+      width: 5rem;
+      border-radius: 10px;
     }
   }
 
-  .error {
-    div {
-      color: red;
-    }
-  }
 }
 
-.new-plant-container{
-  .new-plant {
-    background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-    width: 300px;  
-    margin: 70px auto;
-    border-radius: 30px;
-    color: black;
-    opacity: 0.94;
+.account-container{
+  background-color: $tea-green;
+  padding:5%;
+
+  .account {
+    margin: 0 auto;
   
-  
-  h2{
-    text-align:center;
   }
-  
-    form {
-        @include flex(column, center, center, no-wrap);
-        label {
-          padding:5px;
-        }
-        .number-input{
-          width: 25px;
-        }
-    }
-  }
+
 }
 
-.edit-plant-container{
-  // height: ;
 
-  .edit-plant {
-    background-image: url("https://images.unsplash.com/photo-1579546928937-641f7ac9bced?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=584&q=80");
-    width: 300px;  
-    margin: 70px auto;
-    border-radius: 30px;
-    color: black;
-    opacity: 0.94;
-  
-  
-  h2{
-    text-align:center;
-  }
-  
-    form {
-        @include flex(column, center, center, no-wrap);
-        label {
-          padding:5px;
-        }
-        .number-input{
-          width: 25px;
-        }
-    }
-  }
+.edit {
+
+margin: 0;
+
 }
 
 .round-button{
@@ -237,10 +151,10 @@
     border-radius: 50%;
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
     float:left;
-    height: 50px;
-    margin: 10px;
+    height: 5rem;
+    margin: 2rem 1rem;
     position: relative;
-    width: 50px;			
+    width: 5rem;			
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
 
@@ -283,7 +197,7 @@
   }
 }
 
-.droplet {
+.droplet-button {
   height: 70px;
   width: 70px;
   &:after {
@@ -298,22 +212,24 @@
   }
 }
 
-.add {
-  height: 70px;
-  width: 70px;
+.add-button {
+  height: 7rem;
+  width: 7rem;
+  margin: 15rem 17rem 21rem 10rem;
   &:after {
     content: "+";
-    font-size: 2rem;
-    left: 19px;
-    top: 12px;
+    font-family: $font-2;
+    font-size: 4rem;
+    left: 21px;
+    top: 10px;
   }
   &:hover:after {
-    color: lightblue;
-    text-shadow: 0px 0px 6px green;
+    color: lightgray;
+    text-shadow: 0px 0px 6px gray;
   }
 }
 
-.delete {
+.delete-button {
   &:after {
     content: "✖";
     left: 10px;
@@ -325,7 +241,7 @@
   }
 }
 
-.edit {
+.edit-button {
   &:after {
     content: "✐";
     left: 10px;
@@ -338,26 +254,18 @@
 }
 
 .button {
-  font-family: 'Montserrat';
-  font-size: 1rem;
+  font-family: $font-2;
+  font-weight: bold;
+  color: $dark-green;
   border: none;
   background-color: white;
-  background-image: linear-gradient(top, #f4f1ee, #fff);
-  border-radius: 10px;
-  width: 90px;
-  padding: 20px 0;
+  border-radius: 1rem;
+  width: 9rem;
+  padding: 1.5rem 0;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
   float:left;
-  margin: 25px;
-  position: relative;		
+  margin: 2.5rem 2.5rem 4rem;	
   -webkit-transition: all .1s linear;
   transition: all .1s linear;
-}
-
-.add-btn{
-  //custom styles
-}
-
-.cancel-btn{
-  //custom styles
+  cursor: pointer;
 }

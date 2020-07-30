@@ -43,6 +43,9 @@ export default function AccountForm(props) {
     const [disabledPassword, setDisabledPassword] = useState(intitialDisabledPassword);
     const [hiddenPhoneMessage, setHiddenPhoneMessage] = useState(true);
     const [hiddenPasswordMessage, setHiddenPasswordMessage] = useState(true);
+    const [hiddenMessage, setHiddenMessage] = useState(true)
+    const [updateMessage, setUpdateMessage] = useState('')
+
 
     const formattedPhone = () => {
         return {
@@ -140,73 +143,73 @@ export default function AccountForm(props) {
     //enables submit button once validation is met
     useEffect(() => {
         phoneFormSchema.isValid(phone).then(valid => {
-            setDisabledPhone(!valid);
-        });
-    }, [phone]);
+            setDisabledPhone(!valid)
+        })
+    }, [phone])
 
     useEffect(() => {
         passwordFormSchema.isValid(passwordValues).then(valid => {
-            setDisabledPassword(!valid);
-        });
-    }, [passwordValues]);
+            setDisabledPassword(!valid)
+        })
+    }, [passwordValues])
 
     return (
-
-        <div className='account-form-container'>
-            <h2>Edit Account Information</h2>
-            <h3>Update Phone Number</h3>
-            <form onSubmit={onPhoneSubmit} className='change-email'>
-                <label htmlFor='phone'>
-                    <input
-                        placeholder="Enter phone number"
-                        value={phone.phone}
-                        onChange={onPhoneChange}
-                        name='phone'
-                    />
-                </label>
-                <button className='submit-btn button' disabled={disabledPhone}>Update</button>
-                <div className={hiddenPhoneMessage ? 'hidden-message-on' : 'hidden-message-off'}>
-                    <p>Phone Number Updated</p>
+        <div className='account-container'>
+            <div className='card account'>
+                <h2>Edit Account Information</h2>
+                <div className='messages'>
+                    <p className={hiddenMessage ? 'hidden-message-on' : 'hidden-message-off'}>
+                        {updateMessage}
+                    </p>
+                    <p>{phoneError.phone}</p>
+                    <p>{passwordErrors.password}</p>
+                    <p>{passwordErrors.passwordConfirm}</p>
                 </div>
 
-            </form>
-            <h3>Update Passward</h3>
-            <form onSubmit={onPasswordSubmit} className='change-password'>
-                <label htmlFor='password'>
-                    <input
-                        id='password'
-                        name='password'
-                        type='password'
-                        placeholder='Enter New Password'
-                        value={passwordValues.password}
-                        onChange={onPasswordChange}
+                <form onSubmit={onPhoneSubmit} className='change-email'>
+                <h3>Update Phone Number</h3>
+                    <label htmlFor='phone'>
+                        <input
+                            placeholder="Enter phone number"
+                            value={phone.phone}
+                            onChange={onPhoneChange}
+                            name='phone'
+                        />
+                    </label>
+                    <button className='button' disabled={disabledPhone}>Update</button>
+                </form>
 
-                    />
-                </label>
-                <label htmlFor='passwordConfirm'>
-                    <input
-                        id='passwordConfirm'
-                        name='passwordConfirm'
-                        type='password'
-                        placeholder='Confirm New Password'
-                        value={passwordValues.passwordConfirm}
-                        onChange={onPasswordChange}
-                    />
-                </label>
+                <form onSubmit={onPasswordSubmit} className='change-password'>
+                <h3>Update Password</h3>
+                    <label htmlFor='password'>
+                        <input
+                            id='password'
+                            name='password'
+                            type='password'
+                            placeholder='Enter New Password'
+                            value={passwordValues.password}
+                            onChange={onPasswordChange}
 
-                <button className='submit-btn button' disabled={disabledPassword}>Update</button>
-                <div className={hiddenPasswordMessage ? 'hidden-message-on' : 'hidden-message-off'}>
-                    <p>Phone Number Updated</p>
-                </div>
-            </form>
-            <div className='errors'>
-                <div>{phoneError.phone}</div>
-                <div>{passwordErrors.password}</div>
-                <div>{passwordErrors.passwordConfirm}</div>
+                        />
+                    </label>
+                    <label htmlFor='passwordConfirm'>
+                        <input
+                            id='passwordConfirm'
+                            name='passwordConfirm'
+                            type='password'
+                            placeholder='Confirm New Password'
+                            value={passwordValues.passwordConfirm}
+                            onChange={onPasswordChange}
+                        />
+                    </label>
+
+                    <button className='button' disabled={disabledPassword}>Update</button>
+
+                </form>
+
             </div>
         </div>
-
-    );
+    )
 
 }
 
