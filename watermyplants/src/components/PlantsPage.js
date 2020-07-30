@@ -7,7 +7,6 @@ import EditPlantForm from './EditPlantForm'
 
 function PlantsPage(props) {
 
-    const [modalShow, setModalShow] = useState(false);
     const [hideNewPlant, setHideNewPlant] = useState(true)
 
     useEffect(() => {
@@ -19,7 +18,7 @@ function PlantsPage(props) {
     }
 
     return (
-        <div>
+        <div className='plants-page'>
             <h1>My Plant Family</h1>
             <div className='plant-card-container'>
                 {props.plants.map(plnt => {
@@ -35,7 +34,7 @@ function PlantsPage(props) {
                 }
 
                 <a
-                    className={hideNewPlant ? 'round-button add' : 'round-button add hidden'}
+                    className={hideNewPlant ? 'round-button add-button' : 'round-button add-button hidden'}
                     onClick={addPlant}
                 ></a>
                 <div className={hideNewPlant ? 'hidden' : ''}>

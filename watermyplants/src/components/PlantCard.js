@@ -37,16 +37,16 @@ function PlantCard(props) {
                         <button
                             onClick={editChanger}
                             disabled={props.makingChanges}
-                            className="round-button edit"
+                            className="round-button edit-button"
                         ></button>
                         <button
                             disabled={props.makingChanges}
-                            className="round-button droplet"
+                            className="round-button droplet-button"
                         ></button>
                         <button
                             disabled={props.makingChanges}
                             onClick={handleDelete}
-                            className="round-button delete"
+                            className="round-button delete-button"
                         ></button>
                     </div>
                 </>) : null}
