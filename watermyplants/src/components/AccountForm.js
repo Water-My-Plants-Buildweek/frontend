@@ -1,139 +1,161 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import * as yup from 'yup'
-import passwordFormSchema from '../validation/passwordFormSchema'
-import phoneFormSchema from '../validation/phoneFormSchema'
+import * as yup from 'yup';
+import passwordFormSchema from '../validation/passwordFormSchema';
+import phoneFormSchema from '../validation/phoneFormSchema';
 
 //setting up default form values so that fields are empty
 
 const initialPhoneValue = {
-    phone: ""}
+    phone: ""
+};
 
 const initialPasswordValues = {
     password: '',
     passwordConfirm: ''
-}
+};
 
 //setting up default error values so that no errors appear
 
 const initialPhoneError = {
-    phone: ""}
+    phone: ""
+};
 
 const initialPasswordErrors = {
     password: '',
     passwordConfirm: ''
-}
+};
 
 
 //initializes that submit button as disabled
-const intitialDisabledPhone = true
-const intitialDisabledPassword = true
-const intitialPhoneMessage = true
-const initialPasswordMessage = true
+const intitialDisabledPhone = true;
+const intitialDisabledPassword = true;
+const intitialPhoneMessage = true;
+const initialPasswordMessage = true;
 
 export default function AccountForm(props) {
     /////  STATE  /////
-    const [passwordValues, setPasswordValues] = useState(initialPasswordValues)
-    const [passwordErrors, setPasswordErrors] = useState(initialPasswordErrors)
-    const [phone, setPhone] = useState(initialPhoneValue)
-    const [phoneError, setPhoneError] = useState(initialPhoneError)
-    const [disabledPhone, setDisabledPhone] = useState(intitialDisabledPhone)
-    const [disabledPassword, setDisabledPassword] = useState(intitialDisabledPassword)
-    const [hiddenPhoneMessage, setHiddenPhoneMessage] = useState(true)
-    const [hiddenPasswordMessage, setHiddenPasswordMessage] = useState(true)
+    const [passwordValues, setPasswordValues] = useState(initialPasswordValues);
+    const [passwordErrors, setPasswordErrors] = useState(initialPasswordErrors);
+    const [phone, setPhone] = useState(localStorage.getItem('phone') || initialPhoneValue);
+    const [phoneError, setPhoneError] = useState(initialPhoneError);
+    const [disabledPhone, setDisabledPhone] = useState(intitialDisabledPhone);
+    const [disabledPassword, setDisabledPassword] = useState(intitialDisabledPassword);
+    const [hiddenPhoneMessage, setHiddenPhoneMessage] = useState(true);
+    const [hiddenPasswordMessage, setHiddenPasswordMessage] = useState(true);
+
+    const formattedPhone = () => {
+        return {
+            phone
+        };
+    };
+
+    const formattedPassword = () => {
+        return {
+            password: passwordValues.password.trim()
+        };
+    };
 
     const onPhoneSubmit = evt => {
-        evt.preventDefault()
-        // axiosWithAuth()
-        //   .post('/api/auth/register', phone)
-        //   .then(response => {
-        //     console.log(response)
-        //   })
-        //   .catch(error => {
-        //     console.log('Error happend with the post request', error);
-        //   });
-        
-        console.log(hiddenPhoneMessage)
-          setTimeout(setHiddenPhoneMessage(false),5000)
-          console.log(hiddenPhoneMessage)
-      }
+        evt.preventDefault();
+        axiosWithAuth()
+            .put(`/api/auth/user/${localStorage.getItem('id')}`, formattedPhone())
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log('Error happend with the post request', error);
+            });
 
-      const onPasswordSubmit = evt => {
-        evt.preventDefault()
-        setPasswordValues(initialPasswordValues)
-      }
+        console.log(hiddenPhoneMessage);
+        setTimeout(setHiddenPhoneMessage(false), 5000);
+        console.log(hiddenPhoneMessage);
+    };
+
+    const onPasswordSubmit = evt => {
+        evt.preventDefault();
+        axiosWithAuth()
+            .put(`/api/auth/user/${localStorage.getItem('id')}`, formattedPassword())
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log('Error happend with the post request', error);
+            });
+    };
 
     const onPhoneChange = evt => {
-        const name = evt.target.name
-        const value = evt.target.value
-        
-        yup //phone validation
-        .reach(phoneFormSchema, name)
-        .validate(value)
-        .then(valid => {
-            setPhoneError({
-                ...phoneError,
-                [name]: "",
-            })
-        })
-        .catch(err => {
-            setPhoneError({
-                ...phoneError,
-                [name]: err.errors[0],
-            })
-        })
+        const name = evt.target.name;
+        const value = evt.target.value;
 
-    //state
-    setPhone({...phone,
-        [name]: value
-    })
-    }
+        yup //phone validation
+            .reach(phoneFormSchema, name)
+            .validate(value)
+            .then(valid => {
+                setPhoneError({
+                    ...phoneError,
+                    [name]: "",
+                });
+            })
+            .catch(err => {
+                setPhoneError({
+                    ...phoneError,
+                    [name]: err.errors[0],
+                });
+            });
+
+        //state
+        setPhone({
+            ...phone,
+            [name]: value
+        });
+    };
 
     const onPasswordChange = evt => {
-        const name = evt.target.name
-        const value = evt.target.value
-        
-        yup //password validation
-        .reach(passwordFormSchema, name)
-        .validate(value)
-        .then(valid => {
-            setPasswordErrors({
-                ...passwordErrors,
-                [name]: "",
-            })
-        })
-        .catch(err => {
-            setPasswordErrors({
-                ...passwordErrors,
-                [name]: err.errors[0],
-            })
+        const name = evt.target.name;
+        const value = evt.target.value;
 
-        })
-    setPasswordValues({
-        ...passwordValues,
-        [name]: value
-    })
-    }
+        yup //password validation
+            .reach(passwordFormSchema, name)
+            .validate(value)
+            .then(valid => {
+                setPasswordErrors({
+                    ...passwordErrors,
+                    [name]: "",
+                });
+            })
+            .catch(err => {
+                setPasswordErrors({
+                    ...passwordErrors,
+                    [name]: err.errors[0],
+                });
+
+            });
+        setPasswordValues({
+            ...passwordValues,
+            [name]: value
+        });
+    };
 
     //enables submit button once validation is met
     useEffect(() => {
-       phoneFormSchema.isValid(phone).then(valid => {
-          setDisabledPhone(!valid)
-        })
-      }, [phone])
+        phoneFormSchema.isValid(phone).then(valid => {
+            setDisabledPhone(!valid);
+        });
+    }, [phone]);
 
     useEffect(() => {
         passwordFormSchema.isValid(passwordValues).then(valid => {
-          setDisabledPassword(!valid)
-        })
-      }, [passwordValues])
+            setDisabledPassword(!valid);
+        });
+    }, [passwordValues]);
 
     return (
-        
+
         <div className='account-form-container'>
             <h2>Edit Account Information</h2>
             <h3>Update Phone Number</h3>
-            <form onSubmit={onPhoneSubmit} className = 'change-email'>
+            <form onSubmit={onPhoneSubmit} className='change-email'>
                 <label htmlFor='phone'>
                     <input
                         placeholder="Enter phone number"
@@ -184,7 +206,7 @@ export default function AccountForm(props) {
             </div>
         </div>
 
-    )
+    );
 
 }
 
