@@ -7,7 +7,6 @@ import EditPlantForm from './EditPlantForm'
 
 function PlantsPage(props) {
 
-    const [modalShow, setModalShow] = useState(false);
     const [hideNewPlant, setHideNewPlant] = useState(true)
 
     useEffect(() => {

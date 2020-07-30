@@ -45,14 +45,13 @@ body {
     }
 
     nav {
-      color: white;
       display: flex;
       justify-content: flex-end;
       width: 50%;
       margin-right: 3rem;
 
       .link {
-        color: #e4eddb;
+        color: $tea-green;
         margin: 3%;
         text-decoration: none;
         font-size: 3rem;
@@ -62,17 +61,22 @@ body {
   }
 }
 
+label {
+  width: 90%;
+}
+
 input {
   padding: 1rem;
   margin: 0.2rem;
   border-radius: 3rem;
   border-bottom: 1px solid black;
-  width: 25rem;
+  width: 100%;
   font-family: $font-1, cursive;
   &:focus {
       outline: none;
   }
 }
+
 
 .hidden {
   display:none;
