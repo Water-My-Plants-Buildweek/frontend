@@ -131,7 +131,7 @@ export default function AccountForm(props) {
 
     return (
 
-        <div className='account-form-container'>
+        <div className='card account'>
             <h2>Edit Account Information</h2>
             <h3>Update Phone Number</h3>
             <form onSubmit={onPhoneSubmit} className='change-email'>

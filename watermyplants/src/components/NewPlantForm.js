@@ -38,7 +38,7 @@ function NewPlantForm(props) {
 
     return (
 
-        <div className='new-plant'>
+        <div className='card'>
             <h2>Add a new plant</h2>
             <form onSubmit={onSubmit}>
 

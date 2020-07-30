@@ -41,8 +41,7 @@ function EditPlantForm(props) {
   };
 
   return (
-  <div className="edit-plant-container">
-      <div className="edit-plant">
+      <div className="card edit">
         <h2>Edit plant</h2>
         <form onSubmit={onSubmit}>
           <label htmlFor="nickname">
@@ -86,7 +85,6 @@ function EditPlantForm(props) {
             <a className="cancel-btn button" onClick={handleCancel}>Cancel</a>
           </div>
         </form>
-      </div>
       </div>
   );
 }

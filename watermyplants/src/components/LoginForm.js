@@ -69,7 +69,7 @@ export default function LoginForm() {
 
   return (
     <div className="formContainer">
-    <form onSubmit={formSubmit} className="loginForm">
+    <form onSubmit={formSubmit} className="signUpForm">
       <h1>Login</h1>
       <img
         src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-256.png"
