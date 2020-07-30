@@ -6,8 +6,12 @@
   flex-wrap: $wrap;
 }
 @mixin for-tablet-landscape-down {
-  @media (max-width: 1200px) { @content; }
+  @media (max-width: 1200px) {
+    @content;
+  }
 }
 @mixin for-phone-down {
-  @media (max-width: 600px) { @content; }
+  @media (max-width: 600px) {
+    @content;
+  }
 }
