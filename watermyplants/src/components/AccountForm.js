@@ -162,8 +162,7 @@ export default function AccountForm(props) {
                         {updateMessage}
                     </p>
                     <p>{phoneError.phone}</p>
-                    <p>{passwordErrors.password}</p>
-                    <p>{passwordErrors.passwordConfirm}</p>
+
                 </div>
 
                 <form onSubmit={onPhoneSubmit} className='change-email'>
@@ -181,6 +180,8 @@ export default function AccountForm(props) {
 
                 <form onSubmit={onPasswordSubmit} className='change-password'>
                 <h3>Update Password</h3>
+                <p>{passwordErrors.password}</p>
+                    <p>{passwordErrors.passwordConfirm}</p>
                     <label htmlFor='password'>
                         <input
                             id='password'
