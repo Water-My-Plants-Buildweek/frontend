@@ -69,10 +69,9 @@ export default function AccountForm(props) {
             .catch(error => {
                 console.log('Error happend with the post request', error);
             });
-
-        console.log(hiddenPhoneMessage);
-        setTimeout(setHiddenPhoneMessage(false), 5000);
-        console.log(hiddenPhoneMessage);
+        setUpdateMessage("Updated Phone")
+        setHiddenMessage(false)
+       
     };
 
     const onPasswordSubmit = evt => {
@@ -85,6 +84,9 @@ export default function AccountForm(props) {
             .catch(error => {
                 console.log('Error happend with the post request', error);
             });
+
+            setUpdateMessage("Updated Password")
+            setHiddenMessage(false)
     };
 
     const onPhoneChange = evt => {
@@ -162,8 +164,7 @@ export default function AccountForm(props) {
                         {updateMessage}
                     </p>
                     <p>{phoneError.phone}</p>
-                    <p>{passwordErrors.password}</p>
-                    <p>{passwordErrors.passwordConfirm}</p>
+
                 </div>
 
                 <form onSubmit={onPhoneSubmit} className='change-email'>
@@ -181,6 +182,8 @@ export default function AccountForm(props) {
 
                 <form onSubmit={onPasswordSubmit} className='change-password'>
                 <h3>Update Password</h3>
+                <p>{passwordErrors.password}</p>
+                    <p>{passwordErrors.passwordConfirm}</p>
                     <label htmlFor='password'>
                         <input
                             id='password'
