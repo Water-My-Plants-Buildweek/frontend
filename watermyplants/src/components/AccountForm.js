@@ -69,10 +69,9 @@ export default function AccountForm(props) {
             .catch(error => {
                 console.log('Error happend with the post request', error);
             });
-
-        console.log(hiddenPhoneMessage);
-        setTimeout(setHiddenPhoneMessage(false), 5000);
-        console.log(hiddenPhoneMessage);
+        setUpdateMessage("Updated Phone")
+        setHiddenMessage(false)
+       
     };
 
     const onPasswordSubmit = evt => {
@@ -85,6 +84,9 @@ export default function AccountForm(props) {
             .catch(error => {
                 console.log('Error happend with the post request', error);
             });
+
+            setUpdateMessage("Updated Password")
+            setHiddenMessage(false)
     };
 
     const onPhoneChange = evt => {
